@@ -1,19 +1,27 @@
 <template>
-  <aside>
-    <PersonsList />
-  </aside>
+  <ul class="persons-list">
+    <li>
+      <span class="person-name">Alberto</span>
+      <span class="remove-button" />
+    </li>
+    <li>
+      <span class="person-name">Mario</span>
+      <span class="remove-button" />
+    </li>
+    <li>
+      <span class="person-name">Cristian</span>
+      <span class="remove-button" />
+    </li>
+    <li>
+      <span class="person-name">Fran</span>
+      <span class="remove-button" />
+    </li>
+    <li>
+      <span class="person-name">Xavi</span>
+      <span class="remove-button" />
+    </li>
+  </ul>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import PersonsList from './PersonsList.vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
-</script>
 
 <style lang="scss" scoped>
 @import '../sass/_variables.scss';
