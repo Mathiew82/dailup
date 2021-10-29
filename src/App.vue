@@ -18,6 +18,5 @@ import Aside from './components/Aside.vue'
 
 body {
   background-color: $light-grey-color;
-  padding: 20px;
 }
 </style>

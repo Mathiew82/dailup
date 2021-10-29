@@ -51,23 +51,21 @@
   > li {
     height: 40px;
     background-color: $white-color;
-    border-right: 1px solid $border-color;
     border-bottom: 1px solid $border-color;
-    border-left: 1px solid $border-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 8px;
 
     &:nth-of-type(1) {
-      border-top: 1px solid $border-color;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
+      border-top-left-radius: $border-radius-default;
+      border-top-right-radius: $border-radius-default;
     }
 
     &:last-of-type {
-      border-bottom-left-radius: 3px;
-      border-bottom-right-radius: 3px;
+      border-bottom: 0;
+      border-bottom-left-radius: $border-radius-default;
+      border-bottom-right-radius: $border-radius-default;
     }
   }
 
@@ -87,23 +85,25 @@
   .remove-button {
     width: 26px;
     height: 26px;
-    background-color: $grey-color;
     border: none;
-    border-radius: 3px;
+    border-radius: $border-radius-default;
     position: relative;
 
     &:after {
+      color: white;
       position: absolute;
       top: 50%;
       left: 50%;
+      text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
     }
 
     &:hover {
-      background-color: $dark-grey-color;
+      background-color: darken($dark-grey-color, 30%);
     }
   }
 
   .apply-person {
+    background-color: #00c1b2;
     margin-right: 8px;
 
     &:after {
@@ -113,6 +113,8 @@
   }
 
   .remove-button {
+    background-color: #f14668;
+
     &:after {
       content: '\02A2F';
       transform: translate(-50%, -54%);
