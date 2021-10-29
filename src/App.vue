@@ -20,19 +20,4 @@ body {
   background-color: $light-grey-color;
   padding: 20px;
 }
-
-#person-name {
-  width: 200px;
-  height: 40px;
-  font-size: 16px;
-  padding: 0 10px;
-}
-
-#add-person {
-  width: 200px;
-  height: 40px;
-  font-size: 16px;
-  margin-top: 5px;
-  padding: 0 10px;
-}
 </style>
