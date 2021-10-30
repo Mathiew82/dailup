@@ -6,10 +6,17 @@
 </template>
 
 <script setup>
+import { provide } from 'vue'
 import Aside from './components/Aside.vue'
 import Content from './components/Content.vue'
+import useCounters from './hooks/useCounters'
+
+const { calculatingCurrentTurnTime, calculatingTotalTime } = useCounters()
 
 const activePersonName = ''
+
+provide('calculatingCurrentTurnTime', calculatingCurrentTurnTime)
+provide('calculatingTotalTime', calculatingTotalTime)
 </script>
 
 <style lang="scss">

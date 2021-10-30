@@ -4,16 +4,12 @@
       {{ nameToShow }}
     </div>
 
-    <Counter type="turn" header="Turno actual" :stop="stopedCurrentTurn" />
-    <Counter type="total" header="Tiempo daily" :stop="stopedTotalTime" />
+    <Counter type="turn" header="Turno actual" />
+    <Counter type="total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
-      <Button type="button" color="blue" @click="stopCurrentTurn">
-        Parar tiempo
-      </Button>
-      <Button type="button" color="blue" @click="stopTotalTime">
-        Terminar daily
-      </Button>
+      <Button type="button" color="blue"> Parar tiempo </Button>
+      <Button type="button" color="blue"> Terminar daily </Button>
     </div>
   </div>
 </template>
@@ -32,16 +28,6 @@ const props = defineProps({
 })
 
 const { activePersonName } = toRefs(props)
-
-const stopedCurrentTurn = ref(false)
-const stopedTotalTime = ref(false)
-
-const stopCurrentTurn = () => {
-  stopedCurrentTurn.value = true
-}
-const stopTotalTime = () => {
-  stopedTotalTime.value = true
-}
 
 const nameToShow = computed(() =>
   activePersonName.value
