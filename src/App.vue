@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <Aside />
-    <Content :activePersonName="activePersonName" />
+    <Content />
   </div>
 </template>
 
@@ -12,14 +12,22 @@ import Content from './components/Content.vue'
 import usePersons from './hooks/usePersons'
 import useCounters from './hooks/useCounters'
 
-const { persons, addPerson, removePerson } = usePersons()
+const {
+  activePerson,
+  persons,
+  addPerson,
+  removePerson,
+  setActivePerson,
+  setActivePersonAsFinished,
+} = usePersons()
 const { calculatingCurrentTurnTime, calculatingTotalTime } = useCounters()
 
-const activePersonName = ''
-
+provide('activePerson', activePerson)
 provide('persons', persons)
 provide('addPerson', addPerson)
 provide('removePerson', removePerson)
+provide('setActivePerson', setActivePerson)
+provide('setActivePersonAsFinished', setActivePersonAsFinished)
 
 provide('calculatingCurrentTurnTime', calculatingCurrentTurnTime)
 provide('calculatingTotalTime', calculatingTotalTime)

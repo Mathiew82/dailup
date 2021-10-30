@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="active-person-name">
-      {{ nameToShow }}
+      {{ activePerson.name }}
     </div>
 
     <Counter
@@ -23,28 +23,13 @@
 </template>
 
 <script setup>
-import { toRefs, inject, computed } from 'vue'
+import { inject } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 
-const props = defineProps({
-  activePersonName: {
-    type: String,
-    require: false,
-    default: '',
-  },
-})
-
-const { activePersonName } = toRefs(props)
-
 const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
 const calculatingTotalTime = inject('calculatingTotalTime')
-
-const nameToShow = computed(() =>
-  activePersonName.value
-    ? activePersonName.value
-    : 'Activa el turno de una persona'
-)
+const activePerson = inject('activePerson')
 </script>
 
 <style lang="scss" scoped>

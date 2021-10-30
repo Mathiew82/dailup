@@ -7,7 +7,11 @@
     <li v-for="person in persons" :key="person.id">
       <span class="person-name"> {{ person.name }} </span>
       <span class="person-options">
-        <span class="apply-person" @click="startPerson(person.id)" />
+        <span
+          class="apply-person"
+          @click="startPerson(person)"
+          :style="`${person.id === activePerson.id && 'display: none'}`"
+        />
         <span class="remove-button" @click="removePerson(person.id)" />
       </span>
     </li>
@@ -25,10 +29,15 @@ defineProps({
 })
 
 const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
+const calculatingTotalTime = inject('calculatingTotalTime')
 const removePerson = inject('removePerson')
+const activePerson = inject('activePerson')
+const setActivePerson = inject('setActivePerson')
 
-const startPerson = (personId) => {
+const startPerson = (person) => {
   calculatingCurrentTurnTime.value = true
+  calculatingTotalTime.value = true
+  setActivePerson(person)
 }
 </script>
 

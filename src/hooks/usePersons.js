@@ -2,6 +2,11 @@ import { ref, reactive } from 'vue'
 
 export default function usePersons() {
   const lastId = ref(1)
+  let activePerson = reactive({
+    id: 0,
+    name: 'Activa el turno de una persona',
+    finished: false
+  })
   let persons = reactive([])
 
   const addPerson = (personName) => {
@@ -9,6 +14,7 @@ export default function usePersons() {
       persons.push({
         id: lastId.value++,
         name: personName,
+        finished: false
       })
     }
   }
@@ -19,9 +25,21 @@ export default function usePersons() {
     persons.splice(position, 1)
   }
 
+  const setActivePerson = (person) => {
+    activePerson.id = person.id
+    activePerson.name = person.name
+  }
+
+  const setActivePersonAsFinished = () => {
+    activePerson.finished = true
+  }
+
   return {
+    activePerson,
     persons,
     addPerson,
     removePerson,
+    setActivePerson,
+    setActivePersonAsFinished,
   }
 }
