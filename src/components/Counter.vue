@@ -5,13 +5,10 @@
     </div>
     <div class="counter__time">{{ minutes }}:{{ seconds }}</div>
   </div>
-  {{ calculatingCurrentTurnTime }}
-  <br />
-  {{ calculatingTotalTime }}
 </template>
 
 <script setup>
-import { toRefs, inject, ref, watch } from 'vue'
+import { toRefs, ref, watch } from 'vue'
 
 const props = defineProps({
   type: {
@@ -22,12 +19,13 @@ const props = defineProps({
     type: String,
     require: true,
   },
+  calculating: {
+    type: Boolean,
+    require: true,
+  },
 })
 
-const { type } = toRefs(props)
-
-const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
-const calculatingTotalTime = inject('calculatingTotalTime')
+const { calculating } = toRefs(props)
 
 const seconds = ref(0)
 const minutes = ref(0)
@@ -44,15 +42,10 @@ const stopTime = () => {
 }
 
 const manageCounterState = (val) => {
-  console.log('se ejecuta el watch', val)
   val ? startTime() : stopTime()
 }
 
-if (type.value === 'turn') {
-  watch(calculatingCurrentTurnTime, (newValue) => manageCounterState(newValue))
-} else if (type.value === 'total') {
-  watch(calculatingTotalTime, (newValue) => manageCounterState(newValue))
-}
+watch(calculating, (newValue) => manageCounterState(newValue))
 </script>
 
 <style lang="scss" scoped>

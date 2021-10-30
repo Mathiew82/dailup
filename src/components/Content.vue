@@ -4,8 +4,16 @@
       {{ nameToShow }}
     </div>
 
-    <Counter type="turn" header="Turno actual" />
-    <Counter type="total" header="Tiempo daily" />
+    <Counter
+      type="turn"
+      header="Turno actual"
+      :calculating="calculatingCurrentTurnTime"
+    />
+    <Counter
+      type="total"
+      header="Tiempo daily"
+      :calculating="calculatingTotalTime"
+    />
 
     <div class="wrapper-buttons">
       <Button type="button" color="blue"> Parar tiempo </Button>
@@ -15,7 +23,7 @@
 </template>
 
 <script setup>
-import { toRefs, ref, computed } from 'vue'
+import { toRefs, inject, computed } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 
@@ -28,6 +36,9 @@ const props = defineProps({
 })
 
 const { activePersonName } = toRefs(props)
+
+const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
+const calculatingTotalTime = inject('calculatingTotalTime')
 
 const nameToShow = computed(() =>
   activePersonName.value
