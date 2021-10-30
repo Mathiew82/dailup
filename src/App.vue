@@ -9,11 +9,17 @@
 import { provide } from 'vue'
 import Aside from './components/Aside.vue'
 import Content from './components/Content.vue'
+import usePersons from './hooks/usePersons'
 import useCounters from './hooks/useCounters'
 
+const { persons, addPerson, removePerson } = usePersons()
 const { calculatingCurrentTurnTime, calculatingTotalTime } = useCounters()
 
 const activePersonName = ''
+
+provide('persons', persons)
+provide('addPerson', addPerson)
+provide('removePerson', removePerson)
 
 provide('calculatingCurrentTurnTime', calculatingCurrentTurnTime)
 provide('calculatingTotalTime', calculatingTotalTime)

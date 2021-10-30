@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, inject } from 'vue'
+import { inject } from 'vue'
 
 defineProps({
   persons: {
@@ -24,16 +24,11 @@ defineProps({
   },
 })
 
-const { emit } = getCurrentInstance()
-
 const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
+const removePerson = inject('removePerson')
 
 const startPerson = (personId) => {
   calculatingCurrentTurnTime.value = true
-}
-
-const removePerson = (personId) => {
-  emit('remove-person', personId)
 }
 </script>
 

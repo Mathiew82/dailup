@@ -1,42 +1,38 @@
 <template>
   <aside>
-    <PersonsList :persons="persons" @remove-person="removePerson" />
+    <PersonsList :persons="persons" />
 
     <input
       type="text"
       name="person"
       v-model="newPersonName"
-      @keyup.enter="addPerson"
+      @keyup.enter="addPersonAndResetInput"
     />
     <br />
-    <Button type="button" color="blue" :fullWidth="true" @click="addPerson">
+    <Button
+      type="button"
+      color="blue"
+      :fullWidth="true"
+      @click="addPersonAndResetInput"
+    >
       Agregar persona
     </Button>
   </aside>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { inject, ref } from 'vue'
 import Button from './ui/Button.vue'
 import PersonsList from './PersonsList.vue'
 
-const persons = ref([])
+const persons = inject('persons')
+const addPerson = inject('addPerson')
+
 const newPersonName = ref('')
-const lastId = ref(1)
 
-const addPerson = () => {
-  if (newPersonName.value) {
-    persons.value.push({
-      id: lastId.value++,
-      name: newPersonName.value,
-    })
-
-    newPersonName.value = ''
-  }
-}
-
-const removePerson = (personId) => {
-  persons.value = persons.value.filter((person) => person.id !== personId)
+const addPersonAndResetInput = () => {
+  addPerson(newPersonName.value)
+  newPersonName.value = ''
 }
 </script>
 
