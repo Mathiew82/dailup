@@ -1,10 +1,15 @@
 <template>
   <aside>
-    <PersonsList />
+    <PersonsList :persons="persons" @remove-person="removePerson" />
 
-    <input type="text" name="person" />
+    <input
+      type="text"
+      name="person"
+      v-model="newPersonName"
+      @keyup.enter="addPerson"
+    />
     <br />
-    <Button type="button" color="blue" :fullWidth="true">
+    <Button type="button" color="blue" :fullWidth="true" @click="addPerson">
       Agregar persona
     </Button>
   </aside>
@@ -15,11 +20,20 @@ import { ref } from 'vue'
 import Button from './ui/Button.vue'
 import PersonsList from './PersonsList.vue'
 
-defineProps({
-  msg: String,
-})
+const persons = ref([])
+const newPersonName = ref('')
+const lastId = ref(1)
 
-const count = ref(0)
+const addPerson = () => {
+  persons.value.push({
+    id: lastId.value++,
+    name: newPersonName.value,
+  })
+}
+
+const removePerson = (personId) => {
+  persons.value = persons.value.filter((person) => person.id !== personId)
+}
 </script>
 
 <style lang="scss" scoped>

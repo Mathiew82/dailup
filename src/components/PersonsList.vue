@@ -1,42 +1,35 @@
 <template>
   <ul class="persons-list">
-    <li>
-      <span class="person-name">Alberto</span>
+    <li v-for="person in persons" :key="person.id">
+      <span class="person-name"> {{ person.name }} </span>
       <span class="person-options">
-        <span class="apply-person" />
-        <span class="remove-button" />
-      </span>
-    </li>
-    <li>
-      <span class="person-name">Mario</span>
-      <span class="person-options">
-        <span class="apply-person" />
-        <span class="remove-button" />
-      </span>
-    </li>
-    <li>
-      <span class="person-name">Cristian</span>
-      <span class="person-options">
-        <span class="apply-person" />
-        <span class="remove-button" />
-      </span>
-    </li>
-    <li>
-      <span class="person-name">Fran</span>
-      <span class="person-options">
-        <span class="apply-person" />
-        <span class="remove-button" />
-      </span>
-    </li>
-    <li>
-      <span class="person-name">Xavi</span>
-      <span class="person-options">
-        <span class="apply-person" />
-        <span class="remove-button" />
+        <span class="apply-person" @click="startPerson(person.id)" />
+        <span class="remove-button" @click="removePerson(person.id)" />
       </span>
     </li>
   </ul>
 </template>
+
+<script setup>
+import { getCurrentInstance } from 'vue'
+
+defineProps({
+  persons: {
+    type: Array,
+    require: true,
+  },
+})
+
+const { emit } = getCurrentInstance()
+
+const startPerson = (personId) => {
+  console.log('startPerson => ', personId)
+}
+
+const removePerson = (personId) => {
+  emit('remove-person', personId)
+}
+</script>
 
 <style lang="scss" scoped>
 @import '../sass/_variables.scss';
@@ -71,6 +64,7 @@
 
   .person-name {
     font-size: 16px;
+    overflow: hidden;
   }
 
   .person-options {
