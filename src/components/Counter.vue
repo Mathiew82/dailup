@@ -3,12 +3,12 @@
     <div class="counter__name">
       {{ header }}
     </div>
-    <div class="counter__time">{{ minutes }}:{{ seconds }}</div>
+    <div class="counter__time">{{ getTimeFormatted }}</div>
   </div>
 </template>
 
 <script setup>
-import { toRefs, ref, watch } from 'vue'
+import { toRefs, ref, computed, watch } from 'vue'
 
 const props = defineProps({
   type: {
@@ -27,13 +27,22 @@ const props = defineProps({
 
 const { calculating } = toRefs(props)
 
-const seconds = ref(0)
-const minutes = ref(0)
+const totalSeconds = ref(0)
 const timer = ref()
+
+const getTimeFormatted = computed(() => {
+  const minutes = Math.floor(totalSeconds.value / 60)
+  const seconds = totalSeconds.value - minutes * 60
+  return `${addZeroToValue(minutes)}:${addZeroToValue(seconds)}`
+})
+
+const addZeroToValue = (val) => {
+  return val < 10 ? `0${val}` : val
+}
 
 const startTime = () => {
   timer.value = setInterval(() => {
-    seconds.value++
+    totalSeconds.value++
   }, 1000)
 }
 
