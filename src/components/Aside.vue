@@ -29,6 +29,8 @@ const addPerson = () => {
     id: lastId.value++,
     name: newPersonName.value,
   })
+
+  newPersonName.value = ''
 }
 
 const removePerson = (personId) => {
@@ -41,6 +43,7 @@ const removePerson = (personId) => {
 
 aside {
   width: 240px;
+  min-width: 240px;
   height: 100vh;
   background-color: darken($light-grey-color, 2%);
   box-shadow: 5px 0 8px darken($grey-color, 8%);

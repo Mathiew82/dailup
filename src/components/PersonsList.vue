@@ -1,5 +1,9 @@
 <template>
-  <ul class="persons-list">
+  <div v-if="persons.length === 0" class="without-persons">
+    <div>☹</div>
+    Agrega las personas que participarán en la daily
+  </div>
+  <ul v-else class="persons-list">
     <li v-for="person in persons" :key="person.id">
       <span class="person-name"> {{ person.name }} </span>
       <span class="person-options">
@@ -33,6 +37,16 @@ const removePerson = (personId) => {
 
 <style lang="scss" scoped>
 @import '../sass/_variables.scss';
+
+.without-persons {
+  margin-bottom: 20px;
+
+  > div {
+    font-size: 50px;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}
 
 .persons-list {
   max-width: 200px;

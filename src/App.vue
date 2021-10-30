@@ -1,10 +1,16 @@
+<template>
+  <div class="app">
+    <Aside />
+    <Content :activePersonName="activePersonName" />
+  </div>
+</template>
+
 <script setup>
 import Aside from './components/Aside.vue'
-</script>
+import Content from './components/Content.vue'
 
-<template>
-  <Aside msg="Hello Vue 3 + Vite" />
-</template>
+const activePersonName = 'Alberto'
+</script>
 
 <style lang="scss">
 @import './sass/_variables.scss';
@@ -18,6 +24,12 @@ import Aside from './components/Aside.vue'
 
 body {
   background-color: $light-grey-color;
+}
+
+.app {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 input {
