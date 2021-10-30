@@ -25,12 +25,14 @@ const newPersonName = ref('')
 const lastId = ref(1)
 
 const addPerson = () => {
-  persons.value.push({
-    id: lastId.value++,
-    name: newPersonName.value,
-  })
+  if (newPersonName.value) {
+    persons.value.push({
+      id: lastId.value++,
+      name: newPersonName.value,
+    })
 
-  newPersonName.value = ''
+    newPersonName.value = ''
+  }
 }
 
 const removePerson = (personId) => {
