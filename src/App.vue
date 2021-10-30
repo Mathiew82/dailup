@@ -19,4 +19,21 @@ import Aside from './components/Aside.vue'
 body {
   background-color: $light-grey-color;
 }
+
+input {
+  height: 40px;
+  background-color: $white-color;
+  border: none;
+  border-radius: $border-radius-default;
+  box-shadow: 0px 2px 4px rgb(45 35 66 / 20%),
+    0px 7px 13px -3px rgb(45 35 66 / 10%);
+  font-size: 1em;
+  padding: 0 10px;
+
+  &:focus {
+    border: 2px solid $border-color;
+    box-shadow: none;
+    outline: none;
+  }
+}
 </style>
