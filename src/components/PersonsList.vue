@@ -98,7 +98,7 @@
     }
 
     &:hover {
-      background-color: darken($dark-grey-color, 30%);
+      background-color: darken($dark-grey-color, 40%);
     }
   }
 
@@ -106,9 +106,30 @@
     background-color: #00c1b2;
     margin-right: 8px;
 
+    &:before {
+      height: 26px;
+      background-color: black;
+      border-radius: $border-radius-default;
+      color: white;
+      content: 'Su turno';
+      display: none;
+      font-size: 12px;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8px;
+      position: absolute;
+      top: 0;
+      right: 30px;
+      white-space: nowrap;
+    }
+
     &:after {
       content: '\021B5';
       transform: translate(-50%, -45%);
+    }
+
+    &:hover:before {
+      display: flex;
     }
   }
 
