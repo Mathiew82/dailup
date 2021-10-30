@@ -3,7 +3,10 @@
     <PersonsList />
 
     <input type="text" name="person" />
-    <br /><Button type="button" color="blue" :fullWidth="true">Agregar</Button>
+    <br />
+    <Button type="button" color="blue" :fullWidth="true">
+      Agregar persona
+    </Button>
   </aside>
 </template>
 
