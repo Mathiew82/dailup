@@ -1,0 +1,84 @@
+<template>
+  <div :class="`counter counter--${type}`">
+    <div class="counter__name">
+      {{ header }}
+    </div>
+    <div class="counter__time">{{ minutes }}:{{ seconds }}</div>
+  </div>
+</template>
+
+<script setup>
+import { toRefs, ref, watch } from 'vue'
+
+const props = defineProps({
+  type: {
+    type: String,
+    require: true,
+  },
+  header: {
+    type: String,
+    require: true,
+  },
+  stop: {
+    type: Boolean,
+    require: false,
+    default: false,
+  },
+})
+
+const { type, header, stop } = toRefs(props)
+
+const seconds = ref(0)
+const minutes = ref(0)
+const timer = ref()
+
+const startTime = () => {
+  timer.value = setInterval(() => {
+    seconds.value++
+  }, 1000)
+}
+
+const stopTime = () => {
+  clearInterval(timer.value)
+}
+
+watch(stop, () => {
+  stopTime()
+})
+
+startTime()
+</script>
+
+<style lang="scss" scoped>
+@import '../sass/_variables.scss';
+
+.counter {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  color: white;
+  margin: 20px auto 0 auto;
+
+  &--turn {
+    background-color: #498;
+  }
+
+  &--total {
+    background-color: darken($dark-grey-color, 25%);
+  }
+
+  > .counter__name {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding-top: 10px;
+    text-transform: uppercase;
+  }
+
+  > .counter__time {
+    font-size: 80px;
+    padding: 0 0 5px 0;
+    text-shadow: 0 4px 0 rgba(black, 0.3);
+  }
+}
+</style>
