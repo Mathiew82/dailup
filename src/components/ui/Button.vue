@@ -50,7 +50,7 @@ defineProps({
   font-size: 1em;
   font-weight: 700;
   margin-top: 10px;
-  padding: 0 10px;
+  padding: 0 20px;
   text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
   transition: box-shadow $transition-time-default ease,
     transform $transition-time-default ease;

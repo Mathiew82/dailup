@@ -9,7 +9,7 @@
 import Aside from './components/Aside.vue'
 import Content from './components/Content.vue'
 
-const activePersonName = 'Alberto'
+const activePersonName = ''
 </script>
 
 <style lang="scss">
