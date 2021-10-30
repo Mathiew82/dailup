@@ -10,7 +10,10 @@
         <span
           class="apply-person"
           @click="startPerson(person)"
-          :style="`${person.id === activePerson.id && 'display: none'}`"
+          :style="`${
+            (person.id === activePerson.id || person.finished) &&
+            'display: none'
+          }`"
         />
         <span class="remove-button" @click="removePerson(person.id)" />
       </span>
@@ -28,15 +31,17 @@ defineProps({
   },
 })
 
-const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
-const calculatingTotalTime = inject('calculatingTotalTime')
+const start = inject('start')
 const removePerson = inject('removePerson')
 const activePerson = inject('activePerson')
 const setActivePerson = inject('setActivePerson')
 
+const initCounterTime = () => {
+  start.value = true
+}
+
 const startPerson = (person) => {
-  calculatingCurrentTurnTime.value = true
-  calculatingTotalTime.value = true
+  initCounterTime()
   setActivePerson(person)
 }
 </script>

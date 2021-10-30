@@ -20,7 +20,7 @@ const {
   setActivePerson,
   setActivePersonAsFinished,
 } = usePersons()
-const { calculatingCurrentTurnTime, calculatingTotalTime } = useCounters()
+const { start } = useCounters()
 
 provide('activePerson', activePerson)
 provide('persons', persons)
@@ -28,9 +28,7 @@ provide('addPerson', addPerson)
 provide('removePerson', removePerson)
 provide('setActivePerson', setActivePerson)
 provide('setActivePersonAsFinished', setActivePersonAsFinished)
-
-provide('calculatingCurrentTurnTime', calculatingCurrentTurnTime)
-provide('calculatingTotalTime', calculatingTotalTime)
+provide('start', start)
 </script>
 
 <style lang="scss">

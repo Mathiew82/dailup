@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { toRefs, ref, computed, watch } from 'vue'
+import { toRefs, inject, ref, computed, watch } from 'vue'
 
 const props = defineProps({
   type: {
@@ -19,13 +19,12 @@ const props = defineProps({
     type: String,
     require: true,
   },
-  calculating: {
-    type: Boolean,
-    require: true,
-  },
 })
 
-const { calculating } = toRefs(props)
+const { type } = toRefs(props)
+
+const start = inject('start')
+const activePerson = inject('activePerson')
 
 const totalSeconds = ref(0)
 const timer = ref()
@@ -50,11 +49,13 @@ const stopTime = () => {
   clearInterval(timer.value)
 }
 
-const manageCounterState = (val) => {
-  val ? startTime() : stopTime()
-}
+watch(start, (newValue) => {
+  startTime()
+})
 
-watch(calculating, (newValue) => manageCounterState(newValue))
+watch(activePerson, () => {
+  if (type.value === 'turn') totalSeconds.value = 0
+})
 </script>
 
 <style lang="scss" scoped>

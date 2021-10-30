@@ -4,16 +4,8 @@
       {{ activePerson.name }}
     </div>
 
-    <Counter
-      type="turn"
-      header="Turno actual"
-      :calculating="calculatingCurrentTurnTime"
-    />
-    <Counter
-      type="total"
-      header="Tiempo daily"
-      :calculating="calculatingTotalTime"
-    />
+    <Counter type="turn" header="Turno actual" />
+    <Counter type="total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
       <Button type="button" color="blue"> Parar tiempo </Button>
@@ -27,8 +19,6 @@ import { inject } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 
-const calculatingCurrentTurnTime = inject('calculatingCurrentTurnTime')
-const calculatingTotalTime = inject('calculatingTotalTime')
 const activePerson = inject('activePerson')
 </script>
 

@@ -5,6 +5,7 @@ export default function usePersons() {
   let activePerson = reactive({
     id: 0,
     name: 'Activa el turno de una persona',
+    time: 0,
     finished: false
   })
   let persons = reactive([])
@@ -14,6 +15,7 @@ export default function usePersons() {
       persons.push({
         id: lastId.value++,
         name: personName,
+        time: 0,
         finished: false
       })
     }
