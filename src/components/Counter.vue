@@ -75,7 +75,7 @@ watch(activeUser, () => {
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: #498;
+    background-color: $green-color;
   }
 
   &--total {

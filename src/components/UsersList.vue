@@ -152,7 +152,7 @@ const startUser = (person) => {
   }
 
   .apply-user {
-    background-color: #00c1b2;
+    background-color: $green-color;
 
     &:before {
       height: 26px;

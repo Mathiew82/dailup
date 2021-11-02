@@ -8,10 +8,10 @@
     <Counter :type="counterTypes.total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
-      <Button type="button" color="blue" @click="stopTimer">
+      <Button type="button" color="orange" @click="stopTimer">
         Parar tiempo
       </Button>
-      <Button type="button" color="blue"> Terminar daily </Button>
+      <Button type="button" color="green"> Terminar daily </Button>
     </div>
   </div>
 </template>

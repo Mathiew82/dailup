@@ -60,7 +60,12 @@ defineProps({
   }
 
   &--green {
-    background: darken($green-color, 15%);
+    background: $green-color;
+    color: $white-color;
+  }
+
+  &--orange {
+    background: $orange-color;
     color: $white-color;
   }
 
