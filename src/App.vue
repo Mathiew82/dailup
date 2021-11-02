@@ -64,7 +64,6 @@ input {
 
   &:focus {
     border: 2px solid $border-color;
-    box-shadow: none;
     outline: none;
   }
 }
