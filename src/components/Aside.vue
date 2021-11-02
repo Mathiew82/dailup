@@ -3,6 +3,7 @@
     <UsersList :users="users" :confirmedUsers="confirmedUsers" />
 
     <input
+      v-if="!confirmedUsers"
       type="text"
       name="person"
       v-model="newUserName"
@@ -10,6 +11,7 @@
     />
     <br />
     <Button
+      v-if="!confirmedUsers"
       type="button"
       color="blue"
       :fullWidth="true"
@@ -18,7 +20,13 @@
       Agregar usuario
     </Button>
     <br /><br />
-    <Button type="button" color="green" :fullWidth="true" @click="confirmUsers">
+    <Button
+      v-if="users.length > 1 && !confirmedUsers"
+      type="button"
+      color="green"
+      :fullWidth="true"
+      @click="confirmUsers"
+    >
       Confirmar usuarios
     </Button>
   </aside>
