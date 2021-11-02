@@ -9,6 +9,7 @@
 
 <script setup>
 import { toRefs, inject, ref, computed, watch } from 'vue'
+import { counterTypes } from '../constants/counterTypes'
 
 const props = defineProps({
   type: {
@@ -24,6 +25,7 @@ const props = defineProps({
 const { type } = toRefs(props)
 
 const start = inject('start')
+const stop = inject('stop')
 const activePerson = inject('activePerson')
 
 const totalSeconds = ref(0)
@@ -39,22 +41,26 @@ const addZeroToValue = (val) => {
   return val < 10 ? `0${val}` : val
 }
 
-const startTime = () => {
+const startTimer = () => {
   timer.value = setInterval(() => {
     totalSeconds.value++
   }, 1000)
 }
 
-const stopTime = () => {
+const stopTimer = () => {
   clearInterval(timer.value)
 }
 
 watch(start, (newValue) => {
-  startTime()
+  newValue && startTimer()
+})
+
+watch(stop, (newValue) => {
+  newValue && stopTimer()
 })
 
 watch(activePerson, () => {
-  if (type.value === 'turn') totalSeconds.value = 0
+  if (type.value === counterTypes.turn) totalSeconds.value = 0
 })
 </script>
 

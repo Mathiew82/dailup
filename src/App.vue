@@ -20,7 +20,7 @@ const {
   setActivePerson,
   setActivePersonAsFinished,
 } = usePersons()
-const { start } = useCounters()
+const { start, stop } = useCounters()
 
 provide('activePerson', activePerson)
 provide('persons', persons)
@@ -29,6 +29,7 @@ provide('removePerson', removePerson)
 provide('setActivePerson', setActivePerson)
 provide('setActivePersonAsFinished', setActivePersonAsFinished)
 provide('start', start)
+provide('stop', stop)
 </script>
 
 <style lang="scss">

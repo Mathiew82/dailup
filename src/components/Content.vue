@@ -4,11 +4,13 @@
       {{ activePerson.name }}
     </div>
 
-    <Counter type="turn" header="Turno actual" />
-    <Counter type="total" header="Tiempo daily" />
+    <Counter :type="counterTypes.turn" header="Turno actual" />
+    <Counter :type="counterTypes.total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
-      <Button type="button" color="blue"> Parar tiempo </Button>
+      <Button type="button" color="blue" @click="stopTimer">
+        Parar tiempo
+      </Button>
       <Button type="button" color="blue"> Terminar daily </Button>
     </div>
   </div>
@@ -18,8 +20,14 @@
 import { inject } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
+import { counterTypes } from '../constants/counterTypes'
 
 const activePerson = inject('activePerson')
+const stop = inject('stop')
+
+const stopTimer = () => {
+  stop.value = true
+}
 </script>
 
 <style lang="scss" scoped>
