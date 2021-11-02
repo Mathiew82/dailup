@@ -44,9 +44,8 @@ defineProps({
   height: 40px;
   border: none;
   border-radius: $border-radius-default;
-  box-shadow: 0px 2px 4px rgb(45 35 66 / 50%),
-    0px 7px 13px -3px rgb(45 35 66 / 40%),
-    inset 0px -3px 0px rgb(58 65 111 / 60%);
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 50%), 0px 7px 13px -3px rgb(0 0 0 / 40%),
+    inset 0px -3px 0px rgb(0 0 0 / 30%);
   font-size: 1em;
   font-weight: 700;
   margin-top: 10px;
@@ -60,14 +59,18 @@ defineProps({
     color: $white-color;
   }
 
+  &--green {
+    background: darken($green-color, 15%);
+    color: $white-color;
+  }
+
   &--full-width {
     width: 100%;
   }
 
   &:hover {
-    box-shadow: 0px 4px 8px rgb(45 35 66 / 50%),
-      0px 7px 13px -3px rgb(45 35 66 / 40%),
-      inset 0px -3px 0px rgb(58 65 111 / 60%);
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 50%), 0px 7px 13px -3px rgb(0 0 0 / 40%),
+      inset 0px -3px 0px rgb(0 0 0 / 30%);
     transform: translateY(-2px);
   }
 }

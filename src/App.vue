@@ -1,12 +1,12 @@
 <template>
   <div class="app">
-    <Aside />
-    <Content />
+    <Aside @confirmed-users="confirmUsers" />
+    <Content :confirmedUsers="confirmedUsers" />
   </div>
 </template>
 
 <script setup>
-import { provide } from 'vue'
+import { provide, ref } from 'vue'
 import Aside from './components/Aside.vue'
 import Content from './components/Content.vue'
 import useUsers from './hooks/useUsers'
@@ -24,6 +24,12 @@ provide('setActiveUser', setActiveUser)
 provide('setUserTime', setUserTime)
 provide('start', start)
 provide('stop', stop)
+
+const confirmedUsers = ref(false)
+
+const confirmUsers = () => {
+  confirmedUsers.value = true
+}
 </script>
 
 <style lang="scss">

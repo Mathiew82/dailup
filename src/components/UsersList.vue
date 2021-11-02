@@ -14,9 +14,15 @@
         <span
           class="apply-user"
           @click="startUser(user)"
-          :style="`${user.id === activeUser.id && 'display: none'}`"
+          :style="`${
+            user.id === activeUser.id || (!confirmedUsers && 'display: none')
+          }`"
         />
-        <span class="remove-button" @click="removeUser(user.id)" />
+        <span
+          class="remove-button"
+          @click="removeUser(user.id)"
+          :style="`${confirmedUsers && 'display: none'}`"
+        />
       </span>
     </li>
   </ul>
@@ -28,6 +34,10 @@ import { inject } from 'vue'
 defineProps({
   users: {
     type: Array,
+    require: true,
+  },
+  confirmedUsers: {
+    type: Boolean,
     require: true,
   },
 })
@@ -77,15 +87,15 @@ const startUser = (person) => {
     padding: 0 8px;
 
     &.active {
-      background-color: #e8f4f0;
-      border-left: 8px solid #60d1c2;
+      background-color: $light-green-color;
+      border-left: 8px solid $green-color;
       padding: 0 8px 0 10px;
       position: relative;
 
       &:after {
         width: 10px;
         height: 10px;
-        background-color: #60d1c2;
+        background-color: $green-color;
         content: '';
         display: block;
         position: absolute;
@@ -143,7 +153,6 @@ const startUser = (person) => {
 
   .apply-user {
     background-color: #00c1b2;
-    margin-right: 8px;
 
     &:before {
       height: 26px;
@@ -174,6 +183,7 @@ const startUser = (person) => {
 
   .remove-button {
     background-color: #f14668;
+    margin-left: 8px;
 
     &:after {
       content: '\02A2F';

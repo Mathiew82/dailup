@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <UsersList :users="users" />
+    <UsersList :users="users" :confirmedUsers="confirmedUsers" />
 
     <input
       type="text"
@@ -17,22 +17,34 @@
     >
       Agregar usuario
     </Button>
+    <br /><br />
+    <Button type="button" color="green" :fullWidth="true" @click="confirmUsers">
+      Confirmar usuarios
+    </Button>
   </aside>
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { getCurrentInstance, inject, ref } from 'vue'
 import Button from './ui/Button.vue'
 import UsersList from './UsersList.vue'
+
+const { emit } = getCurrentInstance()
 
 const users = inject('users')
 const addUser = inject('addUser')
 
 const newUserName = ref('')
+const confirmedUsers = ref(false)
 
 const addUserAndResetInput = () => {
   addUser(newUserName.value)
   newUserName.value = ''
+}
+
+const confirmUsers = () => {
+  confirmedUsers.value = true
+  emit('confirmed-users')
 }
 </script>
 
