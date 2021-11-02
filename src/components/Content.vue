@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <div class="active-person-name">
-      {{ activePerson.name }}
+    <div class="active-user-name">
+      {{ activeUser.name }}
     </div>
 
     <Counter :type="counterTypes.turn" header="Turno actual" />
@@ -22,7 +22,7 @@ import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
 
-const activePerson = inject('activePerson')
+const activeUser = inject('activeUser')
 const stop = inject('stop')
 
 const stopTimer = () => {
@@ -38,7 +38,7 @@ const stopTimer = () => {
   padding: 20px;
   text-align: center;
 
-  > .active-person-name {
+  > .active-user-name {
     font-size: 50px;
     font-weight: 700;
   }

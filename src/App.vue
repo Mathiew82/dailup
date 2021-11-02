@@ -9,25 +9,19 @@
 import { provide } from 'vue'
 import Aside from './components/Aside.vue'
 import Content from './components/Content.vue'
-import usePersons from './hooks/usePersons'
+import useUsers from './hooks/useUsers'
 import useCounters from './hooks/useCounters'
 
-const {
-  activePerson,
-  persons,
-  addPerson,
-  removePerson,
-  setActivePerson,
-  setPersonTime,
-} = usePersons()
+const { activeUser, users, addUser, removeUser, setActiveUser, setUserTime } =
+  useUsers()
 const { start, stop } = useCounters()
 
-provide('activePerson', activePerson)
-provide('persons', persons)
-provide('addPerson', addPerson)
-provide('removePerson', removePerson)
-provide('setActivePerson', setActivePerson)
-provide('setPersonTime', setPersonTime)
+provide('activeUser', activeUser)
+provide('users', users)
+provide('addUser', addUser)
+provide('removeUser', removeUser)
+provide('setActiveUser', setActiveUser)
+provide('setUserTime', setUserTime)
 provide('start', start)
 provide('stop', stop)
 </script>

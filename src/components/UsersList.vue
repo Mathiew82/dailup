@@ -1,22 +1,22 @@
 <template>
-  <div v-if="persons.length === 0" class="without-persons">
+  <div v-if="users.length === 0" class="without-users">
     <div>☹</div>
     Agrega las personas que participarán en la daily
   </div>
-  <ul v-else class="persons-list">
+  <ul v-else class="users-list">
     <li
-      v-for="person in persons"
-      :key="person.id"
-      :class="{ active: person.id === activePerson.id }"
+      v-for="user in users"
+      :key="user.id"
+      :class="{ active: user.id === activeUser.id }"
     >
-      <span class="person-name"> {{ person.name }} </span>
-      <span class="person-options">
+      <span class="user-name"> {{ user.name }} </span>
+      <span class="user-options">
         <span
-          class="apply-person"
-          @click="startPerson(person)"
-          :style="`${person.id === activePerson.id && 'display: none'}`"
+          class="apply-user"
+          @click="startUser(user)"
+          :style="`${user.id === activeUser.id && 'display: none'}`"
         />
-        <span class="remove-button" @click="removePerson(person.id)" />
+        <span class="remove-button" @click="removeUser(user.id)" />
       </span>
     </li>
   </ul>
@@ -26,31 +26,31 @@
 import { inject } from 'vue'
 
 defineProps({
-  persons: {
+  users: {
     type: Array,
     require: true,
   },
 })
 
 const start = inject('start')
-const removePerson = inject('removePerson')
-const activePerson = inject('activePerson')
-const setActivePerson = inject('setActivePerson')
+const removeUser = inject('removeUser')
+const activeUser = inject('activeUser')
+const setActiveUser = inject('setActiveUser')
 
 const initCounterTime = () => {
   start.value = true
 }
 
-const startPerson = (person) => {
+const startUser = (person) => {
   initCounterTime()
-  setActivePerson(person)
+  setActiveUser(person)
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../sass/_variables.scss';
 
-.without-persons {
+.without-users {
   margin-bottom: 20px;
 
   > div {
@@ -60,7 +60,7 @@ const startPerson = (person) => {
   }
 }
 
-.persons-list {
+.users-list {
   max-width: 200px;
   list-style-type: none;
   list-style-position: inside;
@@ -77,20 +77,20 @@ const startPerson = (person) => {
     padding: 0 8px;
 
     &.active {
-      background-color: #d0f1e2;
-      border-left: 10px solid #60d1c2;
-      padding: 0 8px 0 14px;
+      background-color: #e8f4f0;
+      border-left: 8px solid #60d1c2;
+      padding: 0 8px 0 10px;
       position: relative;
 
       &:after {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
         background-color: #60d1c2;
         content: '';
         display: block;
         position: absolute;
         top: 50%;
-        left: -8px;
+        left: -6px;
         transform: translateY(-50%) rotate(-45deg);
       }
     }
@@ -107,12 +107,12 @@ const startPerson = (person) => {
     }
   }
 
-  .person-name {
+  .user-name {
     font-size: 16px;
     overflow: hidden;
   }
 
-  .person-options {
+  .user-options {
     width: 32%;
     height: 40px;
     display: flex;
@@ -120,7 +120,7 @@ const startPerson = (person) => {
     align-items: center;
   }
 
-  .apply-person,
+  .apply-user,
   .remove-button {
     width: 26px;
     height: 26px;
@@ -141,7 +141,7 @@ const startPerson = (person) => {
     }
   }
 
-  .apply-person {
+  .apply-user {
     background-color: #00c1b2;
     margin-right: 8px;
 

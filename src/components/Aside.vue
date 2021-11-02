@@ -1,21 +1,21 @@
 <template>
   <aside>
-    <PersonsList :persons="persons" />
+    <UsersList :users="users" />
 
     <input
       type="text"
       name="person"
-      v-model="newPersonName"
-      @keyup.enter="addPersonAndResetInput"
+      v-model="newUserName"
+      @keyup.enter="addUserAndResetInput"
     />
     <br />
     <Button
       type="button"
       color="blue"
       :fullWidth="true"
-      @click="addPersonAndResetInput"
+      @click="addUserAndResetInput"
     >
-      Agregar persona
+      Agregar usuario
     </Button>
   </aside>
 </template>
@@ -23,16 +23,16 @@
 <script setup>
 import { inject, ref } from 'vue'
 import Button from './ui/Button.vue'
-import PersonsList from './PersonsList.vue'
+import UsersList from './UsersList.vue'
 
-const persons = inject('persons')
-const addPerson = inject('addPerson')
+const users = inject('users')
+const addUser = inject('addUser')
 
-const newPersonName = ref('')
+const newUserName = ref('')
 
-const addPersonAndResetInput = () => {
-  addPerson(newPersonName.value)
-  newPersonName.value = ''
+const addUserAndResetInput = () => {
+  addUser(newUserName.value)
+  newUserName.value = ''
 }
 </script>
 

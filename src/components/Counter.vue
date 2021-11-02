@@ -26,7 +26,7 @@ const { type } = toRefs(props)
 
 const start = inject('start')
 const stop = inject('stop')
-const activePerson = inject('activePerson')
+const activeUser = inject('activeUser')
 
 const totalSeconds = ref(0)
 const timer = ref()
@@ -59,7 +59,7 @@ watch(stop, (newValue) => {
   newValue && stopTimer()
 })
 
-watch(activePerson, () => {
+watch(activeUser, () => {
   if (type.value === counterTypes.turn) totalSeconds.value = 0
 })
 </script>
