@@ -4,9 +4,7 @@ export default function usePersons() {
   const lastId = ref(1)
   let activePerson = reactive({
     id: 0,
-    name: 'Activa el turno de una persona',
-    time: 0,
-    finished: false
+    name: 'Activa el turno de una persona'
   })
   let persons = reactive([])
 
@@ -15,8 +13,7 @@ export default function usePersons() {
       persons.push({
         id: lastId.value++,
         name: personName,
-        time: 0,
-        finished: false
+        time: 0
       })
     }
   }
@@ -32,8 +29,9 @@ export default function usePersons() {
     activePerson.name = person.name
   }
 
-  const setActivePersonAsFinished = () => {
-    activePerson.finished = true
+  const setPersonTime = (personId, time) => {
+    const currentPerson = persons.find(person => person.id === personId)
+    currentPerson.time = time
   }
 
   return {
@@ -42,6 +40,6 @@ export default function usePersons() {
     addPerson,
     removePerson,
     setActivePerson,
-    setActivePersonAsFinished,
+    setPersonTime,
   }
 }

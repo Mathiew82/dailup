@@ -18,7 +18,7 @@ const {
   addPerson,
   removePerson,
   setActivePerson,
-  setActivePersonAsFinished,
+  setPersonTime,
 } = usePersons()
 const { start, stop } = useCounters()
 
@@ -27,7 +27,7 @@ provide('persons', persons)
 provide('addPerson', addPerson)
 provide('removePerson', removePerson)
 provide('setActivePerson', setActivePerson)
-provide('setActivePersonAsFinished', setActivePersonAsFinished)
+provide('setPersonTime', setPersonTime)
 provide('start', start)
 provide('stop', stop)
 </script>

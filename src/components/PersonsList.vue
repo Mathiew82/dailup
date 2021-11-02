@@ -4,16 +4,17 @@
     Agrega las personas que participarán en la daily
   </div>
   <ul v-else class="persons-list">
-    <li v-for="person in persons" :key="person.id">
+    <li
+      v-for="person in persons"
+      :key="person.id"
+      :class="{ active: person.id === activePerson.id }"
+    >
       <span class="person-name"> {{ person.name }} </span>
       <span class="person-options">
         <span
           class="apply-person"
           @click="startPerson(person)"
-          :style="`${
-            (person.id === activePerson.id || person.finished) &&
-            'display: none'
-          }`"
+          :style="`${person.id === activePerson.id && 'display: none'}`"
         />
         <span class="remove-button" @click="removePerson(person.id)" />
       </span>
@@ -74,6 +75,25 @@ const startPerson = (person) => {
     justify-content: space-between;
     align-items: center;
     padding: 0 8px;
+
+    &.active {
+      background-color: #d0f1e2;
+      border-left: 10px solid #60d1c2;
+      padding: 0 8px 0 14px;
+      position: relative;
+
+      &:after {
+        width: 14px;
+        height: 14px;
+        background-color: #60d1c2;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -8px;
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
 
     &:nth-of-type(1) {
       border-top-left-radius: $border-radius-default;
