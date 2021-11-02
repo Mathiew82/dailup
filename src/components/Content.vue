@@ -8,10 +8,7 @@
     <Counter :type="counterTypes.total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
-      <Button type="button" color="orange" @click="stopTimer">
-        Parar tiempo
-      </Button>
-      <Button type="button" color="green"> Terminar daily </Button>
+      <Button type="button" color="blue"> Terminar daily </Button>
     </div>
   </div>
 </template>
@@ -65,7 +62,7 @@ const stopTimer = () => {
   width: 100%;
   max-width: 400px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 20px auto 0 auto;
 }

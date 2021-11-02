@@ -64,8 +64,8 @@ defineProps({
     color: $white-color;
   }
 
-  &--orange {
-    background: $orange-color;
+  &--red {
+    background: $red-color;
     color: $white-color;
   }
 
