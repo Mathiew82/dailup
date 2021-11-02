@@ -44,8 +44,8 @@ defineProps({
   height: 40px;
   border: none;
   border-radius: $border-radius-default;
-  box-shadow: 0px 2px 4px rgb(0 0 0 / 50%), 0px 7px 13px -3px rgb(0 0 0 / 40%),
-    inset 0px -3px 0px rgb(0 0 0 / 30%);
+  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 50%),
+    0px 7px 13px -3px rgb(0 0 0 / 40%), inset 0px -3px 0px rgb(0 0 0 / 20%);
   font-size: 1em;
   font-weight: 700;
   margin-top: 10px;
@@ -57,26 +57,32 @@ defineProps({
   &--blue {
     background: $blue-color;
     color: $white-color;
+
+    &:hover {
+      background: darken($blue-color, 4%);
+    }
   }
 
   &--green {
     background: $green-color;
     color: $white-color;
+
+    &:hover {
+      background: darken($green-color, 4%);
+    }
   }
 
   &--red {
     background: $red-color;
     color: $white-color;
+
+    &:hover {
+      background: darken($red-color, 4%);
+    }
   }
 
   &--full-width {
     width: 100%;
-  }
-
-  &:hover {
-    box-shadow: 0px 4px 8px rgb(0 0 0 / 50%), 0px 7px 13px -3px rgb(0 0 0 / 40%),
-      inset 0px -3px 0px rgb(0 0 0 / 30%);
-    transform: translateY(-2px);
   }
 }
 </style>
