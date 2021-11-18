@@ -1,7 +1,7 @@
 <template>
   <div v-if="users.length === 0" class="without-users">
     <div>☹</div>
-    Agrega las personas que participarán en la daily
+    Agrega las personas que participarán
   </div>
   <ul v-else class="users-list">
     <li
@@ -61,6 +61,7 @@ const startUser = (person) => {
 @import '../sass/_variables.scss';
 
 .without-users {
+  line-height: 1.4;
   margin-bottom: 20px;
 
   > div {
@@ -71,7 +72,7 @@ const startUser = (person) => {
 }
 
 .users-list {
-  max-width: 200px;
+  width: 100%;
   list-style-type: none;
   list-style-position: inside;
   margin: 0 0 20px 0;
@@ -79,7 +80,7 @@ const startUser = (person) => {
 
   > li {
     height: 40px;
-    background-color: $white-color;
+    background-color: $greenish-blue-color;
     border-bottom: 1px solid $border-color;
     display: flex;
     justify-content: space-between;

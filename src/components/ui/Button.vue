@@ -44,15 +44,22 @@ defineProps({
   height: 40px;
   border: none;
   border-radius: $border-radius-default;
-  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 50%),
-    0px 7px 13px -3px rgb(0 0 0 / 40%), inset 0px -3px 0px rgb(0 0 0 / 20%);
+  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
+    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
   font-size: 1em;
-  font-weight: 700;
+  font-weight: 600;
   margin-top: 10px;
   padding: 0 20px;
-  text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
-  transition: box-shadow $transition-time-default ease,
-    transform $transition-time-default ease;
+  transition: all $transition-time-default;
+
+  &--cyan {
+    background: $cyan-color;
+    color: $black-color;
+
+    &:hover {
+      background: $light-cyan-color;
+    }
+  }
 
   &--blue {
     background: $blue-color;
@@ -65,10 +72,10 @@ defineProps({
 
   &--green {
     background: $green-color;
-    color: $white-color;
+    color: $black-color;
 
     &:hover {
-      background: darken($green-color, 4%);
+      background: $light-green-color;
     }
   }
 

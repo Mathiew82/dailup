@@ -13,7 +13,7 @@
     <Button
       v-if="!confirmedUsers"
       type="button"
-      color="blue"
+      color="cyan"
       :fullWidth="true"
       @click="addUserAndResetInput"
     >
@@ -60,12 +60,14 @@ const confirmUsers = () => {
 @import '../sass/_variables.scss';
 
 aside {
-  width: 240px;
-  min-width: 240px;
-  height: 100vh;
-  background-color: darken($light-grey-color, 2%);
-  box-shadow: 5px 0 8px darken($grey-color, 8%);
-  padding: 20px;
+  width: 350px;
+  min-width: 350px;
+  height: 94vh;
+  background-color: $light-greenish-blue-color;
+  border-radius: $border-radius-large;
+  // box-shadow: 0 4px 16px rgb(0 0 0 / 60%);
+  margin: 3vh 0 0 3vh;
+  padding: 30px;
 }
 
 input {

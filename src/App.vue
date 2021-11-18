@@ -38,12 +38,14 @@ const confirmUsers = () => {
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.5px;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: $light-grey-color;
+  background-color: $greenish-blue-color;
+  color: $text-color;
 }
 
 .app {
@@ -53,17 +55,19 @@ body {
 }
 
 input {
-  height: 40px;
-  background-color: $white-color;
-  border: none;
+  height: 50px;
+  background-color: $greenish-blue-color;
+  border: 1px solid $border-color;
   border-radius: $border-radius-default;
   box-shadow: 0px 2px 4px -2px rgb(45 35 66 / 20%),
     0px 7px 13px -3px rgb(45 35 66 / 10%);
+  color: $text-color;
   font-size: 1em;
   padding: 0 10px;
+  transition: all $transition-time-default;
 
   &:focus {
-    border: 2px solid $border-color;
+    border-color: lighten($border-color, 16%);
     outline: none;
   }
 }
