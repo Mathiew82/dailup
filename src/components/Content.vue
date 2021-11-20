@@ -8,7 +8,7 @@
     <Counter :type="counterTypes.total" header="Tiempo daily" />
 
     <div class="wrapper-buttons">
-      <Button type="button" color="blue"> Terminar daily </Button>
+      <Button type="button" color="green"> Terminar daily </Button>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ const stopTimer = () => {
   animation: fadeIn 2s;
 
   > .active-user-name {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
   }
 }

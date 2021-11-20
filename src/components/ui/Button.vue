@@ -52,21 +52,12 @@ defineProps({
   padding: 0 20px;
   transition: all $transition-time-default;
 
-  &--cyan {
-    background: $cyan-color;
+  &--blue {
+    background: $blue-color;
     color: $black-color;
 
     &:hover {
-      background: $light-cyan-color;
-    }
-  }
-
-  &--blue {
-    background: $blue-color;
-    color: $white-color;
-
-    &:hover {
-      background: darken($blue-color, 4%);
+      background: $light-blue-color;
     }
   }
 
@@ -84,7 +75,7 @@ defineProps({
     color: $white-color;
 
     &:hover {
-      background: darken($red-color, 4%);
+      background: $light-red-color;
     }
   }
 

@@ -13,7 +13,7 @@
     <Button
       v-if="!confirmedUsers"
       type="button"
-      color="cyan"
+      color="blue"
       :fullWidth="true"
       @click="addUserAndResetInput"
     >
@@ -63,7 +63,7 @@ aside {
   width: 350px;
   min-width: 350px;
   height: 94vh;
-  background-color: $light-greenish-blue-color;
+  background-color: $light-navy-blue-color;
   border-radius: $border-radius-large;
   // box-shadow: 0 4px 16px rgb(0 0 0 / 60%);
   margin: 3vh 0 0 3vh;

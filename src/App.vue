@@ -44,7 +44,7 @@ const confirmUsers = () => {
 }
 
 body {
-  background-color: $greenish-blue-color;
+  background-color: $navy-blue-color;
   color: $text-color;
 }
 
@@ -56,7 +56,7 @@ body {
 
 input {
   height: 50px;
-  background-color: $greenish-blue-color;
+  background-color: $navy-blue-color;
   border: 1px solid $border-color;
   border-radius: $border-radius-default;
   box-shadow: 0px 2px 4px -2px rgb(45 35 66 / 20%),

@@ -75,25 +75,26 @@ watch(activeUser, () => {
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: $green-color;
+    background-color: rgba($green-color, 0.3);
   }
 
   &--total {
-    background-color: darken($dark-grey-color, 25%);
+    background-color: $light-navy-blue-color;
   }
 
   > .counter__name {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     letter-spacing: 3px;
-    padding-top: 10px;
+    padding-top: 15px;
+    text-shadow: 2px 2px 0 rgba(black, 0.5);
     text-transform: uppercase;
   }
 
   > .counter__time {
-    font-size: 80px;
+    font-size: 70px;
     padding: 0 0 5px 0;
-    text-shadow: 0 4px 0 rgba(black, 0.3);
+    text-shadow: 2px 2px 0 rgba(black, 0.5);
   }
 }
 </style>

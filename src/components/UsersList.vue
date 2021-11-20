@@ -1,6 +1,6 @@
 <template>
   <div v-if="users.length === 0" class="without-users">
-    <div>☹</div>
+    <div>🔅</div>
     Agrega las personas que participarán
   </div>
   <ul v-else class="users-list">
@@ -12,16 +12,15 @@
       <span class="user-name"> {{ user.name }} </span>
       <span class="user-options">
         <span
-          class="apply-user"
+          :class="[
+            'apply-user',
+            { 'display-none': user.id === activeUser.id || !confirmedUsers },
+          ]"
           @click="startUser(user)"
-          :style="`${
-            user.id === activeUser.id || (!confirmedUsers && 'display: none')
-          }`"
         />
         <span
-          class="remove-button"
+          :class="['remove-button', { 'display-none': confirmedUsers }]"
           @click="removeUser(user.id)"
-          :style="`${confirmedUsers && 'display: none'}`"
         />
       </span>
     </li>
@@ -60,6 +59,10 @@ const startUser = (person) => {
 <style lang="scss" scoped>
 @import '../sass/_variables.scss';
 
+.display-none {
+  display: none;
+}
+
 .without-users {
   line-height: 1.4;
   margin-bottom: 20px;
@@ -80,18 +83,28 @@ const startUser = (person) => {
 
   > li {
     height: 40px;
-    background-color: $greenish-blue-color;
-    border-bottom: 1px solid $border-color;
+    background-color: $navy-blue-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2px;
     padding: 0 8px;
 
     &.active {
       background-color: $light-green-color;
-      border-left: 8px solid $green-color;
-      padding: 0 8px 0 10px;
+      color: $black-color;
+      padding: 0 8px 0 20px;
       position: relative;
+
+      &:before {
+        width: 10px;
+        height: 40px;
+        background-color: $green-color;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
 
       &:after {
         width: 10px;
@@ -101,20 +114,28 @@ const startUser = (person) => {
         display: block;
         position: absolute;
         top: 50%;
-        left: -6px;
-        transform: translateY(-50%) rotate(-45deg);
+        left: 4px;
+        transform: translateY(-45%) rotate(-45deg);
       }
     }
 
     &:nth-of-type(1) {
-      border-top-left-radius: $border-radius-default;
-      border-top-right-radius: $border-radius-default;
+      border-top-left-radius: $border-radius-medium;
+      border-top-right-radius: $border-radius-medium;
+
+      &:before {
+        border-top-left-radius: $border-radius-medium;
+      }
     }
 
     &:last-of-type {
       border-bottom: 0;
-      border-bottom-left-radius: $border-radius-default;
-      border-bottom-right-radius: $border-radius-default;
+      border-bottom-left-radius: $border-radius-medium;
+      border-bottom-right-radius: $border-radius-medium;
+
+      &:before {
+        border-bottom-left-radius: $border-radius-medium;
+      }
     }
   }
 
@@ -140,7 +161,7 @@ const startUser = (person) => {
     position: relative;
 
     &:after {
-      color: white;
+      color: $white-color;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -148,7 +169,7 @@ const startUser = (person) => {
     }
 
     &:hover {
-      background-color: darken($dark-grey-color, 40%);
+      background-color: lighten($navy-blue-color, 25%);
     }
   }
 
@@ -157,9 +178,9 @@ const startUser = (person) => {
 
     &:before {
       height: 26px;
-      background-color: black;
+      background-color: lighten($navy-blue-color, 25%);
       border-radius: $border-radius-default;
-      color: white;
+      color: $white-color;
       content: 'Su turno';
       display: none;
       font-size: 12px;
