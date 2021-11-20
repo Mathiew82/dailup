@@ -204,12 +204,12 @@ const startUser = (person) => {
   }
 
   .remove-button {
-    background-color: #f14668;
+    background-color: $red-color;
     margin-left: 8px;
 
     &:after {
       content: '\02A2F';
-      transform: translate(-50%, -54%);
+      transform: translate(-50%, -60%);
     }
   }
 }
