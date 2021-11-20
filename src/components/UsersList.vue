@@ -82,23 +82,23 @@ const startUser = (person) => {
   padding: 0;
 
   > li {
-    height: 40px;
+    height: 50px;
     background-color: $navy-blue-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2px;
-    padding: 0 8px;
+    padding: 0 16px;
 
     &.active {
       background-color: $light-green-color;
       color: $black-color;
-      padding: 0 8px 0 20px;
+      padding: 0 16px 0 24px;
       position: relative;
 
       &:before {
         width: 10px;
-        height: 40px;
+        height: 50px;
         background-color: $green-color;
         content: '';
         position: absolute;
@@ -115,7 +115,7 @@ const startUser = (person) => {
         position: absolute;
         top: 50%;
         left: 4px;
-        transform: translateY(-45%) rotate(-45deg);
+        transform: translateY(-50%) rotate(-45deg);
       }
     }
 
@@ -146,7 +146,7 @@ const startUser = (person) => {
 
   .user-options {
     width: 32%;
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
