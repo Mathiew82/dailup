@@ -82,7 +82,7 @@ const startUser = (person) => {
   padding: 0;
 
   > li {
-    height: 50px;
+    height: 46px;
     background-color: $navy-blue-color;
     display: flex;
     justify-content: space-between;
@@ -98,7 +98,7 @@ const startUser = (person) => {
 
       &:before {
         width: 10px;
-        height: 50px;
+        height: 46px;
         background-color: $green-color;
         content: '';
         position: absolute;
@@ -146,7 +146,7 @@ const startUser = (person) => {
 
   .user-options {
     width: 32%;
-    height: 50px;
+    height: 46px;
     display: flex;
     justify-content: flex-end;
     align-items: center;

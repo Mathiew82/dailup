@@ -71,11 +71,11 @@ watch(activeUser, () => {
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
-  color: white;
+  color: $white-color;
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: rgba($green-color, 0.3);
+    background-color: rgba($green-color, 0.2);
   }
 
   &--total {
@@ -87,7 +87,7 @@ watch(activeUser, () => {
     font-weight: 400;
     letter-spacing: 3px;
     padding-top: 15px;
-    text-shadow: 2px 2px 0 rgba(black, 0.5);
+    text-shadow: 2px 2px 0 rgba($black-color, 0.5);
     text-transform: uppercase;
   }
 
