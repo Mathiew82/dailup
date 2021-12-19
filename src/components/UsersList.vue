@@ -1,6 +1,5 @@
 <template>
   <div v-if="users.length === 0" class="without-users">
-    <div>🔅</div>
     Agrega las personas que participarán
   </div>
   <ul v-else class="users-list">
@@ -65,7 +64,7 @@ const startUser = (person) => {
 
 .without-users {
   line-height: 1.4;
-  margin-bottom: 20px;
+  margin: 20px 0;
 
   > div {
     font-size: 50px;
@@ -78,7 +77,7 @@ const startUser = (person) => {
   width: 100%;
   list-style-type: none;
   list-style-position: inside;
-  margin: 0 0 20px 0;
+  margin: 20px 0;
   padding: 0;
 
   > li {
