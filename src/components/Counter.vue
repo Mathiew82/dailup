@@ -71,15 +71,17 @@ watch(activeUser, () => {
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
+  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
+    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
   color: $white-color;
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: rgba($green-color, 0.2);
+    background-color: rgba($green-color, 0.4);
   }
 
   &--total {
-    background-color: $light-navy-blue-color;
+    background-color: lighten($light-navy-blue-color, 10%);
   }
 
   > .counter__name {

@@ -75,6 +75,8 @@ const startUser = (person) => {
 
 .users-list {
   width: 100%;
+  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
+    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
   list-style-type: none;
   list-style-position: inside;
   margin: 20px 0;
@@ -88,10 +90,9 @@ const startUser = (person) => {
     align-items: center;
     margin-bottom: 2px;
     padding: 0 16px;
+    transition: all $transition-time-default;
 
     &.active {
-      background-color: $light-green-color;
-      color: $black-color;
       padding: 0 16px 0 24px;
       position: relative;
 
@@ -160,7 +161,6 @@ const startUser = (person) => {
     position: relative;
 
     &:after {
-      color: $white-color;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -193,12 +193,17 @@ const startUser = (person) => {
     }
 
     &:after {
+      color: $black-color;
       content: '\021B5';
       transform: translate(-50%, -45%);
     }
 
     &:hover:before {
       display: flex;
+    }
+
+    &:hover:after {
+      color: $white-color;
     }
   }
 
@@ -207,6 +212,7 @@ const startUser = (person) => {
     margin-left: 8px;
 
     &:after {
+      color: $white-color;
       content: '\02A2F';
       transform: translate(-50%, -60%);
     }
