@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { defineProps, inject } from 'vue'
 
 defineProps({
   users: {

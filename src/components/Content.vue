@@ -14,12 +14,12 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { defineProps, inject } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
 
-const props = defineProps({
+defineProps({
   confirmedUsers: {
     type: Boolean,
     require: true,
@@ -27,11 +27,6 @@ const props = defineProps({
 })
 
 const activeUser = inject('activeUser')
-const stop = inject('stop')
-
-const stopTimer = () => {
-  stop.value = true
-}
 </script>
 
 <style lang="scss" scoped>
