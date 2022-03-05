@@ -1,4 +1,4 @@
-[![Deployment Pipeline](https://github.com/Mathiew82/daily-start/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Mathiew82/daily-start/actions/workflows/pipeline.yml)
+[![Deployment](https://github.com/Mathiew82/daily-start/actions/workflows/pipeline.yml/badge.svg)](https://github.com/Mathiew82/daily-start/actions/workflows/pipeline.yml)
 
 # Daily Start 🌞
 
