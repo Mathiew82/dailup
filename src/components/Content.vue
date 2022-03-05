@@ -48,6 +48,11 @@ const stopTimer = () => {
 
 .content {
   flex-basis: 100%;
+  height: 94vh;
+  background-color: $light-navy-blue-color;
+  border-radius: $border-radius-large;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 60%);
+  margin: 3vh 3vh 0 3vh;
   padding: 20px;
   text-align: center;
   animation: fadeIn 2s;
@@ -55,6 +60,7 @@ const stopTimer = () => {
   > .active-user-name {
     font-size: 40px;
     font-weight: 700;
+    margin-bottom: 40px;
   }
 }
 

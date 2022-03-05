@@ -41,7 +41,7 @@ defineProps({
 
 .button {
   width: auto;
-  height: 40px;
+  height: 44px;
   border: none;
   border-radius: $border-radius-default;
   box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),

@@ -1,6 +1,5 @@
 <template>
   <div v-if="users.length === 0" class="without-users">
-    <div>🔅</div>
     Agrega las personas que participarán
   </div>
   <ul v-else class="users-list">
@@ -65,7 +64,7 @@ const startUser = (person) => {
 
 .without-users {
   line-height: 1.4;
-  margin-bottom: 20px;
+  margin: 20px 0;
 
   > div {
     font-size: 50px;
@@ -76,29 +75,30 @@ const startUser = (person) => {
 
 .users-list {
   width: 100%;
+  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
+    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
   list-style-type: none;
   list-style-position: inside;
-  margin: 0 0 20px 0;
+  margin: 20px 0;
   padding: 0;
 
   > li {
-    height: 50px;
+    height: 46px;
     background-color: $navy-blue-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2px;
     padding: 0 16px;
+    transition: all $transition-time-default;
 
     &.active {
-      background-color: $light-green-color;
-      color: $black-color;
       padding: 0 16px 0 24px;
       position: relative;
 
       &:before {
         width: 10px;
-        height: 50px;
+        height: 46px;
         background-color: $green-color;
         content: '';
         position: absolute;
@@ -146,7 +146,7 @@ const startUser = (person) => {
 
   .user-options {
     width: 32%;
-    height: 50px;
+    height: 46px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -161,7 +161,6 @@ const startUser = (person) => {
     position: relative;
 
     &:after {
-      color: $white-color;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -194,12 +193,17 @@ const startUser = (person) => {
     }
 
     &:after {
+      color: $black-color;
       content: '\021B5';
       transform: translate(-50%, -45%);
     }
 
     &:hover:before {
       display: flex;
+    }
+
+    &:hover:after {
+      color: $white-color;
     }
   }
 
@@ -208,6 +212,7 @@ const startUser = (person) => {
     margin-left: 8px;
 
     &:after {
+      color: $white-color;
       content: '\02A2F';
       transform: translate(-50%, -60%);
     }

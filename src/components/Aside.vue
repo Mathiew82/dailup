@@ -1,5 +1,7 @@
 <template>
   <aside>
+    <img alt="Dailyck logo" src="../assets/logo.png" class="logo" />
+
     <UsersList :users="users" :confirmedUsers="confirmedUsers" />
 
     <input
@@ -65,9 +67,34 @@ aside {
   height: 94vh;
   background-color: $light-navy-blue-color;
   border-radius: $border-radius-large;
-  // box-shadow: 0 4px 16px rgb(0 0 0 / 60%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 60%);
   margin: 3vh 0 0 3vh;
-  padding: 30px;
+  overflow-y: scroll;
+  padding: 30px 12px 30px 30px;
+  text-align: center;
+
+  &::-webkit-scrollbar {
+    width: 18px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $light-navy-blue-color;
+    border: 6px solid $light-navy-blue-color;
+    border-radius: $border-radius-large;
+  }
+
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background-color: darken($navy-blue-color, 5%);
+    }
+  }
+}
+
+.logo {
+  width: 60%;
+  margin: 0 auto 10px auto;
 }
 
 input {
