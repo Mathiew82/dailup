@@ -5,7 +5,9 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "eslint": "eslint ./**/*.{js,vue}"
+    "eslint": "eslint ./**/*.{js,vue}",
+    "test": "jest",
+    "test:e2e": "npx cypress run"
   },
   "dependencies": {
     "vue": "^3.2.16"
