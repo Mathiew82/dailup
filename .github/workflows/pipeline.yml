@@ -16,14 +16,14 @@ jobs:
         with:
           node-version: '14'
       - name: Install dependencies
-        run: yarn install --ignore-optional --silent
+        run: npm install --no-audit --no-fund --no-optional --loglevel=error
       - name: Eslint
-        run: yarn eslint
+        run: npm run eslint
       - name: Build
-        run: yarn build
+        run: npm run build
       - name: Test e2e
         uses: cypress-io/github-action@v2
         with:
-          command: npx browserslist@latest --update-db & yarn test:e2e
+          command: npm run test:e2e
           start: yarn serve
           wait-on: 'http://localhost:4173/'
