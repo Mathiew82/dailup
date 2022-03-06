@@ -26,4 +26,4 @@ jobs:
         with:
           command: yarn test:e2e
           start: yarn serve
-          wait-on: http://localhost:4173/
+          wait-on: 'http://localhost:4173/'
