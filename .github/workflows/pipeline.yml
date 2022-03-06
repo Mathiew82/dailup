@@ -24,6 +24,6 @@ jobs:
       - name: Test e2e
         uses: cypress-io/github-action@v2
         with:
-          command: yarn test:e2e
+          command: npx browserslist@latest --update-db & yarn test:e2e
           start: yarn serve
           wait-on: 'http://localhost:4173/'
