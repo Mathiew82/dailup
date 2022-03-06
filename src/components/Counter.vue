@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { defineProps, toRefs, inject, ref, computed, watch } from 'vue'
+import { toRefs, inject, ref, computed, watch } from 'vue'
 import { counterTypes } from '../constants/counterTypes'
 
 const props = defineProps({

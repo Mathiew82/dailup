@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { defineProps, inject } from 'vue'
+import { inject } from 'vue'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
