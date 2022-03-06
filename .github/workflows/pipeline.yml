@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   deploy:
@@ -28,3 +31,5 @@ jobs:
           command: npm run test:e2e
           start: npm run serve
           wait-on: 'http://localhost:4173/'
+      #- name: Deploy
+        #if: ${{ github.event_name == 'push' }}
