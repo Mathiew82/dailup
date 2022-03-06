@@ -10,6 +10,7 @@
     "test:e2e": "npx cypress run"
   },
   "dependencies": {
+    "@types/cypress": "^1.1.3",
     "vue": "^3.2.16"
   },
   "devDependencies": {
