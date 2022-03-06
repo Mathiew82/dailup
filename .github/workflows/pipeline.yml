@@ -27,4 +27,4 @@ jobs:
           browser: chrome
           command: npm run test:e2e
           start: yarn serve
-          wait-on: 'http://localhost:4173/'
+          wait-on: 'http://localhost:8080/'
