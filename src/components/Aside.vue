@@ -65,8 +65,8 @@ aside {
   width: 350px;
   min-width: 350px;
   height: 100vh;
-  background-color: $light-navy-color-1;
-  box-shadow: 8px 0 0 rgba($navy-color-2, 0.3);
+  background-color: $midnight-blue-color;
+  box-shadow: 5px 0 0 rgba($violet-color, 0.4);
   margin: 0;
   overflow-y: scroll;
   padding: 30px 12px 30px 30px;
@@ -79,14 +79,14 @@ aside {
     background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $light-navy-color-1;
-    border: 6px solid $light-navy-color-1;
+    background-color: $light-midnight-blue-color;
+    border: 6px solid $light-midnight-blue-color;
     border-radius: $border-radius-large;
   }
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background-color: darken($navy-color-1, 5%);
+      background-color: darken($midnight-blue-color, 5%);
     }
   }
 }

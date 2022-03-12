@@ -56,7 +56,7 @@ body {
 
 input {
   height: 50px;
-  background-color: $navy-color-1;
+  background-color: $midnight-blue-color;
   border: 1px solid $border-color;
   border-radius: $border-radius-default;
   box-shadow: 0px 2px 4px -2px rgb(45 35 66 / 20%),

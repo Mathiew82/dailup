@@ -51,7 +51,7 @@ const activeUser = inject('activeUser')
   animation: fadeIn 2s;
 
   > .active-user-name {
-    color: $navy-color-1;
+    color: $midnight-blue-color;
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 40px;

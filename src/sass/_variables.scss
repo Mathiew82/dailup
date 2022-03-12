@@ -1,16 +1,28 @@
 $white-color: #fcfcfc;
 $black-color: #0f161f;
-$text-color: #eff6ff;
-$navy-color-1: #1a154e;
-$navy-color-2: #504791;
-$light-navy-color-1: lighten($navy-color-1, 10%);
+
+$text-color: #333;
+
+$dutch-white-color: #f3dfbf;
+
+$midnight-blue-color: #17065d;
+$light-midnight-blue-color: lighten($midnight-blue-color, 10%);
+
+$coral-color: #eb8a90;
+
+$violet-color: #504791;
+$light-violet-color: lighten($violet-color, 10%);
+
 $blue-color: #6fd8f2;
 $light-blue-color: lighten($blue-color, 10%);
+
 $green-color: #6ff2a8;
 $light-green-color: lighten($green-color, 10%);
+
 $red-color: #fa4f71;
 $light-red-color: lighten($red-color, 10%);
-$border-color: lighten($navy-color-1, 50%);
+
+$border-color: lighten($midnight-blue-color, 50%);
 
 $border-radius-default: 3px;
 $border-radius-medium: 6px;

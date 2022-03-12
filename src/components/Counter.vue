@@ -81,7 +81,7 @@ watch(activeUser, () => {
   }
 
   &--total {
-    background-color: lighten($light-navy-color-1, 10%);
+    background-color: lighten($light-midnight-blue-color, 10%);
   }
 
   > .counter__name {

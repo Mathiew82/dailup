@@ -82,7 +82,8 @@ const startUser = (person) => {
 
   > li {
     height: 46px;
-    background-color: $navy-color-2;
+    background-color: $violet-color;
+    color: $white-color;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -154,7 +155,7 @@ const startUser = (person) => {
   .remove-button {
     width: 26px;
     height: 26px;
-    border: 2px solid rgba(black, 0.3);
+    border: 2px solid rgba(black, 0.4);
     border-radius: $border-radius-medium;
     position: relative;
 
@@ -185,7 +186,7 @@ const startUser = (person) => {
       align-items: center;
       padding: 0 8px;
       position: absolute;
-      top: 0;
+      top: -2px;
       right: 30px;
       white-space: nowrap;
     }
