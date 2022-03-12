@@ -44,15 +44,14 @@ const activeUser = inject('activeUser')
 .content {
   flex-basis: 100%;
   height: 94vh;
-  background-color: $light-navy-blue-color;
-  border-radius: $border-radius-large;
-  box-shadow: 0 8px 32px rgb(0 0 0 / 60%);
+  background-color: $white-color;
   margin: 3vh 3vh 0 3vh;
   padding: 20px;
   text-align: center;
   animation: fadeIn 2s;
 
   > .active-user-name {
+    color: $navy-color-1;
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 40px;

@@ -64,11 +64,10 @@ const confirmUsers = () => {
 aside {
   width: 350px;
   min-width: 350px;
-  height: 94vh;
-  background-color: $light-navy-blue-color;
-  border-radius: $border-radius-large;
-  box-shadow: 0 8px 32px rgb(0 0 0 / 60%);
-  margin: 3vh 0 0 3vh;
+  height: 100vh;
+  background-color: $light-navy-color-1;
+  box-shadow: 8px 0 0 rgba($navy-color-2, 0.3);
+  margin: 0;
   overflow-y: scroll;
   padding: 30px 12px 30px 30px;
   text-align: center;
@@ -80,14 +79,14 @@ aside {
     background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $light-navy-blue-color;
-    border: 6px solid $light-navy-blue-color;
+    background-color: $light-navy-color-1;
+    border: 6px solid $light-navy-color-1;
     border-radius: $border-radius-large;
   }
 
   &:hover {
     &::-webkit-scrollbar-thumb {
-      background-color: darken($navy-blue-color, 5%);
+      background-color: darken($navy-color-1, 5%);
     }
   }
 }

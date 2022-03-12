@@ -75,8 +75,6 @@ const startUser = (person) => {
 
 .users-list {
   width: 100%;
-  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
-    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
   list-style-type: none;
   list-style-position: inside;
   margin: 20px 0;
@@ -84,7 +82,7 @@ const startUser = (person) => {
 
   > li {
     height: 46px;
-    background-color: $navy-blue-color;
+    background-color: $navy-color-2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -120,21 +118,21 @@ const startUser = (person) => {
     }
 
     &:nth-of-type(1) {
-      border-top-left-radius: $border-radius-medium;
-      border-top-right-radius: $border-radius-medium;
+      border-top-left-radius: $border-radius-default;
+      border-top-right-radius: $border-radius-default;
 
       &:before {
-        border-top-left-radius: $border-radius-medium;
+        border-top-left-radius: $border-radius-default;
       }
     }
 
     &:last-of-type {
       border-bottom: 0;
-      border-bottom-left-radius: $border-radius-medium;
-      border-bottom-right-radius: $border-radius-medium;
+      border-bottom-left-radius: $border-radius-default;
+      border-bottom-right-radius: $border-radius-default;
 
       &:before {
-        border-bottom-left-radius: $border-radius-medium;
+        border-bottom-left-radius: $border-radius-default;
       }
     }
   }
@@ -156,8 +154,8 @@ const startUser = (person) => {
   .remove-button {
     width: 26px;
     height: 26px;
-    border: none;
-    border-radius: $border-radius-default;
+    border: 2px solid rgba(black, 0.3);
+    border-radius: $border-radius-medium;
     position: relative;
 
     &:after {
@@ -168,7 +166,7 @@ const startUser = (person) => {
     }
 
     &:hover {
-      background-color: lighten($navy-blue-color, 25%);
+      border-color: rgba(black, 0.8);
     }
   }
 
@@ -177,7 +175,7 @@ const startUser = (person) => {
 
     &:before {
       height: 26px;
-      background-color: lighten($navy-blue-color, 25%);
+      background-color: rgba(black, 0.8);
       border-radius: $border-radius-default;
       color: $white-color;
       content: 'Su turno';
@@ -200,10 +198,6 @@ const startUser = (person) => {
 
     &:hover:before {
       display: flex;
-    }
-
-    &:hover:after {
-      color: $white-color;
     }
   }
 
