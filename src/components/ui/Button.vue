@@ -44,13 +44,11 @@ defineProps({
   height: 44px;
   border: none;
   border-radius: $border-radius-default;
-  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
-    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
+  border: 2px solid rgba(black, 0.4);
   font-size: 1em;
   font-weight: 600;
   margin-top: 10px;
   padding: 0 20px;
-  transition: all $transition-time-default;
 
   &--blue {
     background: $blue-color;
@@ -81,6 +79,10 @@ defineProps({
 
   &--full-width {
     width: 100%;
+  }
+
+  &:hover {
+    border-color: rgba(black, 0.9);
   }
 }
 </style>
