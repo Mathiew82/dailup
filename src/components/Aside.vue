@@ -65,7 +65,7 @@ aside {
   min-width: 350px;
   height: 100vh;
   background-color: $midnight-blue-color;
-  box-shadow: 5px 0 0 rgba($violet-color, 0.4);
+  box-shadow: 6px 0 0 rgba($violet-color, 0.4);
   color: $white-color;
   margin: 0;
   overflow-y: scroll;

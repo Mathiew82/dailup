@@ -71,11 +71,11 @@ watch(activeUser, () => {
   width: 100%;
   max-width: 400px;
   border-radius: $border-radius-medium;
-  box-shadow: 8px 8px 0 rgba($violet-color, 0.1);
+  box-shadow: 0 6px 0 rgba($violet-color, 0.3);
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: $green-color;
+    background-color: $grey-color;
     color: $black-color;
   }
 
