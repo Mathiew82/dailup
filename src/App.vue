@@ -33,24 +33,5 @@ const confirmUsers = () => {
 </script>
 
 <style lang="scss">
-@import './sass/_variables.scss';
-
-* {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 0.5px;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: $white-color;
-  color: $text-color;
-}
-
-.app {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
+@import './sass/main.scss';
 </style>
