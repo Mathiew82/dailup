@@ -1,6 +1,10 @@
 <template>
   <aside>
-    <img alt="Dailyck logo" src="../assets/logo.png" class="logo" />
+    <img
+      alt="Dailyck logo"
+      src="../assets/logo-dailup-white.png"
+      class="logo"
+    />
 
     <UsersList :users="users" :confirmedUsers="confirmedUsers" />
 
