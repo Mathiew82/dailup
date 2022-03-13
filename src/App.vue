@@ -53,22 +53,4 @@ body {
   justify-content: space-between;
   align-items: flex-start;
 }
-
-input {
-  height: 50px;
-  background-color: $midnight-blue-color;
-  border: 1px solid $border-color;
-  border-radius: $border-radius-default;
-  box-shadow: 0px 2px 4px -2px rgb(45 35 66 / 20%),
-    0px 7px 13px -3px rgb(45 35 66 / 10%);
-  color: $text-color;
-  font-size: 1em;
-  padding: 0 10px;
-  transition: all $transition-time-default;
-
-  &:focus {
-    border-color: lighten($border-color, 16%);
-    outline: none;
-  }
-}
 </style>

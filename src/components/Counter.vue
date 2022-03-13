@@ -70,18 +70,18 @@ watch(activeUser, () => {
 .counter {
   width: 100%;
   max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0px 2px 4px -2px rgb(0 0 0 / 70%),
-    0px 7px 13px -3px rgb(0 0 0 / 60%), inset 0px -3px 0px rgb(0 0 0 / 30%);
-  color: $white-color;
+  border-radius: $border-radius-medium;
+  box-shadow: 8px 8px 0 rgba($violet-color, 0.1);
   margin: 20px auto 0 auto;
 
   &--turn {
-    background-color: rgba($green-color, 0.4);
+    background-color: $green-color;
+    color: $black-color;
   }
 
   &--total {
-    background-color: lighten($light-midnight-blue-color, 10%);
+    background-color: $violet-color;
+    color: $white-color;
   }
 
   > .counter__name {
@@ -89,14 +89,12 @@ watch(activeUser, () => {
     font-weight: 400;
     letter-spacing: 3px;
     padding-top: 15px;
-    text-shadow: 2px 2px 0 rgba($black-color, 0.5);
     text-transform: uppercase;
   }
 
   > .counter__time {
     font-size: 70px;
     padding: 0 0 5px 0;
-    text-shadow: 2px 2px 0 rgba(black, 0.5);
   }
 }
 </style>
