@@ -1,7 +1,7 @@
 <template>
   <div v-if="confirmedUsers" class="content">
     <div class="active-user-name">
-      {{ activeUser.name }}
+      {{ userStore.activeUser.name }}
     </div>
 
     <Counter :type="counterTypes.turn" header="Turno actual" />
@@ -14,10 +14,12 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
+import { useUserStore } from '../stores/user.js'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
+
+const userStore = useUserStore()
 
 defineProps({
   confirmedUsers: {
@@ -25,8 +27,6 @@ defineProps({
     require: true,
   },
 })
-
-const activeUser = inject('activeUser')
 </script>
 
 <style lang="scss" scoped>
