@@ -1,25 +1,28 @@
 <template>
-  <div v-if="users.length === 0" class="without-users">
+  <div v-if="userStore.users.length === 0" class="without-users">
     Agrega las personas que participarán
   </div>
   <ul v-else class="users-list">
     <li
-      v-for="user in users"
+      v-for="user in userStore.users"
       :key="user.id"
-      :class="{ active: user.id === activeUser.id }"
+      :class="{ active: user.id === userStore.activeUser.id }"
     >
       <span class="user-name"> {{ user.name }} </span>
       <span class="user-options">
         <span
           :class="[
             'apply-user',
-            { 'display-none': user.id === activeUser.id || !confirmedUsers },
+            {
+              'display-none':
+                user.id === userStore.activeUser.id || !confirmedUsers,
+            },
           ]"
           @click="startUser(user)"
         />
         <span
           :class="['remove-button', { 'display-none': confirmedUsers }]"
-          @click="removeUser(user.id)"
+          @click="userStore.removeUser(user.id)"
         />
       </span>
     </li>
@@ -27,23 +30,19 @@
 </template>
 
 <script setup>
+import { useUserStore } from '../stores/user.js'
+
+const userStore = useUserStore()
+
 defineProps({
-  users: {
-    type: Array,
-    require: true,
-  },
   confirmedUsers: {
     type: Boolean,
     require: true,
   },
 })
 
-const startUser = (person) => {
-  console.log(person)
-}
-
-const removeUser = (userId) => {
-  console.log(userId)
+const startUser = (user) => {
+  userStore.setActiveUser(user)
 }
 </script>
 

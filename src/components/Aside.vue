@@ -6,7 +6,7 @@
       class="logo"
     />
 
-    <UsersList :users="userStore.users" :confirmedUsers="confirmedUsers" />
+    <UsersList :confirmedUsers="confirmedUsers" />
 
     <input
       v-if="!confirmedUsers"
