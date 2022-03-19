@@ -5,7 +5,7 @@
     </div>
 
     <Counter
-      v-if="counterStore.dailyStatus !== 'finished'"
+      v-if="counterStore.dailyStatus !== dailyStatus.finished"
       :type="counterTypes.turn"
       :counter="counterStore.currentTurn"
       header="Turno actual"
@@ -16,7 +16,10 @@
       header="Tiempo daily"
     />
 
-    <div v-if="counterStore.dailyStatus === 'started'" class="wrapper-buttons">
+    <div
+      v-if="counterStore.dailyStatus === dailyStatus.started"
+      class="wrapper-buttons"
+    >
       <Button type="button" color="green" @click="stopDaily">
         Terminar daily
       </Button>
@@ -31,6 +34,7 @@ import { useTimer } from '../hooks/useTimer.ts'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
+import { dailyStatus } from '../constants/dailyStatus'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()

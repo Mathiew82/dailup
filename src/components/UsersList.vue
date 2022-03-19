@@ -17,7 +17,7 @@
               'display-none':
                 user.id === userStore.activeUser.id ||
                 !userStore.confirmedUsers ||
-                counterStore.dailyStatus === 'finished',
+                counterStore.dailyStatus === dailyStatus.finished,
             },
           ]"
           @click="startUser(user)"
@@ -38,6 +38,7 @@
 import { useUserStore } from '../stores/user.js'
 import { useCounterStore } from '../stores/counter.js'
 import { useTimer } from '../hooks/useTimer.ts'
+import { dailyStatus } from '../constants/dailyStatus'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()
