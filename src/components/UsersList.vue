@@ -15,13 +15,17 @@
             'apply-user',
             {
               'display-none':
-                user.id === userStore.activeUser.id || !confirmedUsers,
+                user.id === userStore.activeUser.id ||
+                !userStore.confirmedUsers,
             },
           ]"
           @click="startUser(user)"
         />
         <span
-          :class="['remove-button', { 'display-none': confirmedUsers }]"
+          :class="[
+            'remove-button',
+            { 'display-none': userStore.confirmedUsers },
+          ]"
           @click="userStore.removeUser(user.id)"
         />
       </span>
@@ -31,18 +35,23 @@
 
 <script setup>
 import { useUserStore } from '../stores/user.js'
+import { useCounterStore } from '../stores/counter.js'
+import { useTimer } from '../hooks/useTimer.ts'
 
 const userStore = useUserStore()
+const counterStore = useCounterStore()
 
-defineProps({
-  confirmedUsers: {
-    type: Boolean,
-    require: true,
-  },
-})
+const { initTimer } = useTimer()
 
 const startUser = (user) => {
-  userStore.setActiveUser(user)
+  if (!counterStore.dailyStarted) {
+    userStore.setActiveUser(user)
+    counterStore.startDaily()
+    initTimer()
+  } else {
+    userStore.setActiveUser(user)
+    counterStore.resetCurrentTurn()
+  }
 }
 </script>
 
