@@ -10,9 +10,11 @@
     >
       <span class="user-name">
         {{ user.name }}
-        <span v-if="user.time > 0">{{ getTimeFormatted(user.time) }}</span>
       </span>
       <span class="user-options">
+        <span v-if="user.time > 0" class="user-time">
+          {{ getTimeFormatted(user.time) }}
+        </span>
         <span
           :class="[
             'apply-user',
@@ -149,7 +151,7 @@ const startUser = (user) => {
   }
 
   .user-name {
-    font-size: 16px;
+    font-size: 18px;
     overflow: hidden;
   }
 
@@ -159,6 +161,19 @@ const startUser = (user) => {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    .user-time {
+      height: 26px;
+      background-color: rgba($white-color, 0.8);
+      border: 2px solid rgba(black, 0.4);
+      border-radius: $border-radius-medium;
+      color: $black-color;
+      display: inline-flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0 8px;
+    }
   }
 
   .apply-user,
@@ -167,6 +182,7 @@ const startUser = (user) => {
     height: 26px;
     border: 2px solid rgba(black, 0.4);
     border-radius: $border-radius-medium;
+    margin-left: 6px;
     position: relative;
 
     &:after {

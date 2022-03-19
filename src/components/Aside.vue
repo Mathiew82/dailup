@@ -59,8 +59,8 @@ const addUserAndResetInput = () => {
 @import '../sass/_variables.scss';
 
 aside {
-  width: 350px;
-  min-width: 350px;
+  width: 400px;
+  min-width: 400px;
   height: 100vh;
   background-color: $midnight-blue-color;
   box-shadow: 6px 0 0 rgba($violet-color, 0.4);
