@@ -11,10 +11,15 @@ export const useUserStore = defineStore('user', {
     confirmedUsers: false
   }),
   actions: {
+    incrementLastId() {
+      this.lastId++
+    },
     addUser(userName) {
       if (userName) {
+        this.incrementLastId()
+
         this.users.push({
-          id: this.lastId.value++,
+          id: this.lastId,
           name: userName,
           time: 0
         })
