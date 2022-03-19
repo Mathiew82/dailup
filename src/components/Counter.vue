@@ -3,14 +3,14 @@
     <div class="counter__name">
       {{ header }}
     </div>
-    <div class="counter__time">{{ getTimeFormatted }}</div>
+    <div class="counter__time">{{ getTimeFormatted(counter) }}</div>
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { getTimeFormatted } from '../utils/getTimeFormatted.js'
 
-const props = defineProps({
+defineProps({
   type: {
     type: String,
     require: true,
@@ -24,16 +24,6 @@ const props = defineProps({
     require: true,
   },
 })
-
-const getTimeFormatted = computed(() => {
-  const minutes = Math.floor(props.counter / 60)
-  const seconds = props.counter - minutes * 60
-  return `${addZeroToValue(minutes)}:${addZeroToValue(seconds)}`
-})
-
-const addZeroToValue = (val) => {
-  return val < 10 ? `0${val}` : val
-}
 </script>
 
 <style lang="scss" scoped>
