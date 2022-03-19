@@ -27,8 +27,6 @@
 </template>
 
 <script setup>
-import { inject } from 'vue'
-
 defineProps({
   users: {
     type: Array,
@@ -40,18 +38,12 @@ defineProps({
   },
 })
 
-const start = inject('start')
-const removeUser = inject('removeUser')
-const activeUser = inject('activeUser')
-const setActiveUser = inject('setActiveUser')
-
-const initCounterTime = () => {
-  start.value = true
+const startUser = (person) => {
+  console.log(person)
 }
 
-const startUser = (person) => {
-  initCounterTime()
-  setActiveUser(person)
+const removeUser = (userId) => {
+  console.log(userId)
 }
 </script>
 
