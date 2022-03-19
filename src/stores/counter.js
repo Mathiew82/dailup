@@ -2,9 +2,10 @@ import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', {
   state: () => ({
+    timer: null,
     currentTurn: 0,
     totalTurn: 0,
-    dailyStarted: false
+    dailyStatus: 'pending'
   }),
   actions: {
     resetCurrentTurn() {
@@ -20,7 +21,10 @@ export const useCounterStore = defineStore('counter', {
       this.totalTurn++
     },
     startDaily() {
-      this.dailyStarted = true
+      this.dailyStatus = 'started'
+    },
+    finishDaily() {
+      this.dailyStatus = 'finished'
     }
   }
 })

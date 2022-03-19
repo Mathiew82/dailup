@@ -16,7 +16,8 @@
             {
               'display-none':
                 user.id === userStore.activeUser.id ||
-                !userStore.confirmedUsers,
+                !userStore.confirmedUsers ||
+                counterStore.dailyStatus === 'finished',
             },
           ]"
           @click="startUser(user)"
@@ -41,10 +42,10 @@ import { useTimer } from '../hooks/useTimer.ts'
 const userStore = useUserStore()
 const counterStore = useCounterStore()
 
-const { initTimer } = useTimer()
+const { initTimer } = useTimer(counterStore)
 
 const startUser = (user) => {
-  if (!counterStore.dailyStarted) {
+  if (counterStore.dailyStatus === 'pending') {
     userStore.setActiveUser(user)
     counterStore.startDaily()
     initTimer()

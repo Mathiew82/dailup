@@ -3,16 +3,25 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user', {
   state: () => ({
     lastId: 0,
-    activeUser: {
-      id: 0,
-      name: 'Activa el turno de un usuario'
-    },
+    activeUser: null,
     users: [],
     confirmedUsers: false
   }),
   actions: {
     incrementLastId() {
       this.lastId++
+    },
+    initActiveUser() {
+      this.activeUser = {
+        id: 0,
+        name: 'Activa el turno de un usuario'
+      }
+    },
+    resetActiveUser() {
+      this.activeUser = {
+        id: 0,
+        name: 'Se acabó la daily!'
+      }
     },
     addUser(userName) {
       if (userName) {

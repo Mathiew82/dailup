@@ -5,6 +5,7 @@
     </div>
 
     <Counter
+      v-if="counterStore.dailyStatus !== 'finished'"
       :type="counterTypes.turn"
       :counter="counterStore.currentTurn"
       header="Turno actual"
@@ -15,8 +16,10 @@
       header="Tiempo daily"
     />
 
-    <div class="wrapper-buttons">
-      <Button type="button" color="green"> Terminar daily </Button>
+    <div v-if="counterStore.dailyStatus === 'started'" class="wrapper-buttons">
+      <Button type="button" color="green" @click="stopDaily">
+        Terminar daily
+      </Button>
     </div>
   </div>
 </template>
@@ -24,12 +27,21 @@
 <script setup>
 import { useUserStore } from '../stores/user.js'
 import { useCounterStore } from '../stores/counter.js'
+import { useTimer } from '../hooks/useTimer.ts'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()
+
+const { stopTimer } = useTimer(counterStore)
+
+const stopDaily = () => {
+  stopTimer()
+  userStore.resetActiveUser()
+  counterStore.finishDaily()
+}
 </script>
 
 <style lang="scss" scoped>

@@ -47,6 +47,8 @@ const userStore = useUserStore()
 
 const newUserName = ref('')
 
+userStore.initActiveUser()
+
 const addUserAndResetInput = () => {
   userStore.addUser(newUserName.value)
   newUserName.value = ''
