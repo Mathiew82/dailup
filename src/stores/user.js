@@ -14,13 +14,15 @@ export const useUserStore = defineStore('user', {
     initActiveUser() {
       this.activeUser = {
         id: 0,
-        name: 'Activa el turno de un usuario'
+        name: 'Activa el turno de un usuario',
+        time: 0
       }
     },
     resetActiveUser() {
       this.activeUser = {
         id: 0,
-        name: 'Se acabó la daily!'
+        name: 'Se acabó la daily!',
+        time: 0
       }
     },
     addUser(userName) {
@@ -40,8 +42,7 @@ export const useUserStore = defineStore('user', {
       this.users.splice(position, 1)
     },
     setActiveUser(user) {
-      this.activeUser.id = user.id
-      this.activeUser.name = user.name
+      this.activeUser = user
     },
     setUserTime(userId, time) {
       const currentUser = this.users.find(user => user.id === userId)

@@ -8,7 +8,9 @@
       :key="user.id"
       :class="{ active: user.id === userStore.activeUser.id }"
     >
-      <span class="user-name"> {{ user.name }} </span>
+      <span class="user-name">
+        {{ user.name }} <span v-if="user.time > 0">{{ user.time }}</span>
+      </span>
       <span class="user-options">
         <span
           :class="[
@@ -48,9 +50,13 @@ const { initTimer } = useTimer(counterStore)
 const startUser = (user) => {
   if (counterStore.dailyStatus === 'pending') {
     userStore.setActiveUser(user)
+
     counterStore.startDaily()
     initTimer()
   } else {
+    const newUserTime = userStore.activeUser.time + counterStore.currentTurn
+    userStore.setUserTime(userStore.activeUser.id, newUserTime)
+
     userStore.setActiveUser(user)
     counterStore.resetCurrentTurn()
   }
