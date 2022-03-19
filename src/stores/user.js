@@ -37,6 +37,9 @@ export const useUserStore = defineStore('user', {
     setUserTime(userId, time) {
       const currentUser = this.users.find(user => user.id === userId)
       currentUser.time = time
+    },
+    confirmUsers() {
+      this.confirmedUsers = true
     }
   },
 })
