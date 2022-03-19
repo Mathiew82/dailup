@@ -9,7 +9,8 @@
       :class="{ active: user.id === userStore.activeUser.id }"
     >
       <span class="user-name">
-        {{ user.name }} <span v-if="user.time > 0">{{ user.time }}</span>
+        {{ user.name }}
+        <span v-if="user.time > 0">{{ getTimeFormatted(user.time) }}</span>
       </span>
       <span class="user-options">
         <span
@@ -41,6 +42,7 @@ import { useUserStore } from '../stores/user.js'
 import { useCounterStore } from '../stores/counter.js'
 import { useTimer } from '../hooks/useTimer.ts'
 import { dailyStatus } from '../constants/dailyStatus'
+import { getTimeFormatted } from '../utils/getTimeFormatted.js'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()
