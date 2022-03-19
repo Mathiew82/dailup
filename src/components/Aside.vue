@@ -6,7 +6,7 @@
       class="logo"
     />
 
-    <UsersList :users="users" :confirmedUsers="confirmedUsers" />
+    <UsersList :users="userStore.users" :confirmedUsers="confirmedUsers" />
 
     <input
       v-if="!confirmedUsers"
@@ -26,7 +26,7 @@
       Agregar usuario
     </Button>
     <Button
-      v-if="users.length > 1 && !confirmedUsers"
+      v-if="userStore.users.length > 1 && !confirmedUsers"
       type="button"
       color="green"
       :fullWidth="true"
@@ -38,26 +38,23 @@
 </template>
 
 <script setup>
-import { getCurrentInstance, inject, ref } from 'vue'
+import { ref } from 'vue'
+import { useUserStore } from '../stores/user.js'
 import Button from './ui/Button.vue'
 import UsersList from './UsersList.vue'
 
-const { emit } = getCurrentInstance()
-
-const users = inject('users')
-const addUser = inject('addUser')
+const userStore = useUserStore()
 
 const newUserName = ref('')
 const confirmedUsers = ref(false)
 
 const addUserAndResetInput = () => {
-  addUser(newUserName.value)
+  userStore.addUser(newUserName.value)
   newUserName.value = ''
 }
 
 const confirmUsers = () => {
   confirmedUsers.value = true
-  emit('confirmed-users')
 }
 </script>
 
