@@ -6,10 +6,10 @@
       class="logo"
     />
 
-    <UsersList :confirmedUsers="confirmedUsers" />
+    <UsersList />
 
     <input
-      v-if="!confirmedUsers"
+      v-if="!userStore.confirmedUsers"
       type="text"
       name="person"
       v-model="newUserName"
@@ -17,7 +17,7 @@
     />
     <br />
     <Button
-      v-if="!confirmedUsers"
+      v-if="!userStore.confirmedUsers"
       type="button"
       color="blue"
       :fullWidth="true"
@@ -26,11 +26,11 @@
       Agregar usuario
     </Button>
     <Button
-      v-if="userStore.users.length > 1 && !confirmedUsers"
+      v-if="userStore.users.length > 1 && !userStore.confirmedUsers"
       type="button"
       color="green"
       :fullWidth="true"
-      @click="confirmUsers"
+      @click="userStore.confirmUsers"
     >
       Confirmar usuarios
     </Button>
@@ -46,15 +46,10 @@ import UsersList from './UsersList.vue'
 const userStore = useUserStore()
 
 const newUserName = ref('')
-const confirmedUsers = ref(false)
 
 const addUserAndResetInput = () => {
   userStore.addUser(newUserName.value)
   newUserName.value = ''
-}
-
-const confirmUsers = () => {
-  confirmedUsers.value = true
 }
 </script>
 

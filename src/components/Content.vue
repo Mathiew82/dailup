@@ -1,11 +1,19 @@
 <template>
-  <div v-if="confirmedUsers" class="content">
+  <div v-if="userStore.confirmedUsers" class="content">
     <div class="active-user-name">
       {{ userStore.activeUser.name }}
     </div>
 
-    <Counter :type="counterTypes.turn" header="Turno actual" />
-    <Counter :type="counterTypes.total" header="Tiempo daily" />
+    <Counter
+      :type="counterTypes.turn"
+      :counter="counterStore.currentTurn"
+      header="Turno actual"
+    />
+    <Counter
+      :type="counterTypes.total"
+      :counter="counterStore.totalTurn"
+      header="Tiempo daily"
+    />
 
     <div class="wrapper-buttons">
       <Button type="button" color="green"> Terminar daily </Button>
@@ -15,18 +23,13 @@
 
 <script setup>
 import { useUserStore } from '../stores/user.js'
+import { useCounterStore } from '../stores/counter.js'
 import Button from './ui/Button.vue'
 import Counter from './Counter.vue'
 import { counterTypes } from '../constants/counterTypes'
 
 const userStore = useUserStore()
-
-defineProps({
-  confirmedUsers: {
-    type: Boolean,
-    require: true,
-  },
-})
+const counterStore = useCounterStore()
 </script>
 
 <style lang="scss" scoped>

@@ -8,12 +8,15 @@
 </template>
 
 <script setup>
-import { toRefs, inject, ref, computed, watch } from 'vue'
-import { counterTypes } from '../constants/counterTypes'
+import { computed } from 'vue'
 
 const props = defineProps({
   type: {
     type: String,
+    require: true,
+  },
+  counter: {
+    type: Number,
     require: true,
   },
   header: {
@@ -22,46 +25,15 @@ const props = defineProps({
   },
 })
 
-const { type } = toRefs(props)
-
-const start = inject('start')
-const stop = inject('stop')
-const activeUser = inject('activeUser')
-
-const totalSeconds = ref(0)
-const timer = ref()
-
 const getTimeFormatted = computed(() => {
-  const minutes = Math.floor(totalSeconds.value / 60)
-  const seconds = totalSeconds.value - minutes * 60
+  const minutes = Math.floor(props.counter / 60)
+  const seconds = props.counter - minutes * 60
   return `${addZeroToValue(minutes)}:${addZeroToValue(seconds)}`
 })
 
 const addZeroToValue = (val) => {
   return val < 10 ? `0${val}` : val
 }
-
-const startTimer = () => {
-  timer.value = setInterval(() => {
-    totalSeconds.value++
-  }, 1000)
-}
-
-const stopTimer = () => {
-  clearInterval(timer.value)
-}
-
-watch(start, (newValue) => {
-  newValue && startTimer()
-})
-
-watch(stop, (newValue) => {
-  newValue && stopTimer()
-})
-
-watch(activeUser, () => {
-  if (type.value === counterTypes.turn) totalSeconds.value = 0
-})
 </script>
 
 <style lang="scss" scoped>
