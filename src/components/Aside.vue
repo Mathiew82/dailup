@@ -128,14 +128,14 @@ aside {
   }
 
   button#stats-button {
-    border-color: rgba(white, 0.4) !important;
+    border-color: rgba(white, 0.2) !important;
     position: absolute;
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
 
     &:hover {
-      border-color: rgba(white, 0.3) !important;
+      border-color: rgba(white, 0.2) !important;
     }
   }
 }
