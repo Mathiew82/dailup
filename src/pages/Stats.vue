@@ -5,7 +5,7 @@
       <h3>Estadísticas del mes de Marzo</h3>
     </div>
     <div id="stats"></div>
-    <Button type="button" color="black" @click="goTo('Home')">
+    <Button type="button" color="blue" @click="goTo('Home')">
       Volver a la home
     </Button>
   </div>
@@ -30,7 +30,7 @@ onMounted(() => {
       trigger: 'axis',
     },
     legend: {
-      data: ['Fran', 'Alberto'],
+      data: ['Fran', 'Mario', 'Alberto'],
     },
     grid: {
       left: '5%',
@@ -86,20 +86,36 @@ onMounted(() => {
       {
         name: 'Fran',
         type: 'line',
+        smooth: true,
         stack: 'Total',
+        color: 'violet',
         data: [
-          120, 132, 101, 134, 90, 230, 210, 120, 132, 101, 120, 132, 101, 134,
-          90, 230, 210, 120, 132, 101, 120, 132, 101, 134, 90, 230, 210, 120,
+          120, 132, 101, 134, 234, 290, 330, 310, 132, 101, 120, 132, 101, 134,
+          90, 230, 210, 120, 132, 101, 120, 132, 234, 290, 330, 310, 210, 120,
+          132, 101,
+        ],
+      },
+      {
+        name: 'Mario',
+        type: 'line',
+        smooth: true,
+        stack: 'Total',
+        color: 'blue',
+        data: [
+          230, 158, 126, 251, 211, 155, 330, 310, 132, 101, 120, 132, 101, 134,
+          90, 230, 210, 120, 132, 101, 120, 132, 234, 290, 330, 310, 210, 120,
           132, 101,
         ],
       },
       {
         name: 'Alberto',
         type: 'line',
+        smooth: true,
         stack: 'Total',
+        color: 'green',
         data: [
           220, 182, 191, 234, 290, 330, 310, 220, 182, 191, 220, 182, 191, 234,
-          290, 330, 310, 220, 182, 191, 220, 182, 191, 234, 290, 330, 310, 220,
+          210, 120, 132, 101, 120, 191, 220, 182, 191, 234, 290, 330, 310, 220,
           182, 191,
         ],
       },
@@ -113,12 +129,12 @@ onMounted(() => {
 <style lang="scss">
 .wrapper-stats-page {
   width: 100%;
-  padding: 30px 0 60px 0;
+  padding: 20px 0 60px 0;
   text-align: center;
 
   .wrapper-logo {
     width: 100%;
-    padding: 20px 0;
+    padding: 0 0 20px 0;
 
     .logo {
       width: 150px;
@@ -131,7 +147,8 @@ onMounted(() => {
 
   #stats {
     width: 100%;
-    height: 100vh;
+    height: 70vh;
+    max-height: 70vh;
     padding: 0 20px;
   }
 }
