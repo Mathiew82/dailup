@@ -36,7 +36,7 @@
     </Button>
 
     <Button type="button" color="black" id="stats-button">
-      Ver estadísticas
+      Estadísticas
     </Button>
   </aside>
 </template>
@@ -129,6 +129,7 @@ aside {
 
   button#stats-button {
     border-color: rgba(white, 0.2) !important;
+    border-radius: 3rem;
     position: absolute;
     bottom: 2rem;
     left: 50%;
