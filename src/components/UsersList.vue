@@ -12,7 +12,7 @@
         {{ user.name }}
       </span>
       <span class="user-options">
-        <span v-if="user.time > 0" class="user-time">
+        <span class="user-time">
           {{ getTimeFormatted(user.time) }}
         </span>
         <span
@@ -53,15 +53,15 @@ const { initTimer } = useTimer(counterStore)
 
 const startUser = (user) => {
   if (counterStore.dailyStatus === 'pending') {
+    counterStore.startDaily()
     userStore.setActiveUser(user)
 
-    counterStore.startDaily()
     initTimer()
   } else {
     const newUserTime = userStore.activeUser.time + counterStore.currentTurn
     userStore.setUserTime(userStore.activeUser.id, newUserTime)
-
     userStore.setActiveUser(user)
+
     counterStore.resetCurrentTurn()
   }
 }

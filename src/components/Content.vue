@@ -44,11 +44,12 @@ const { stopTimer } = useTimer(counterStore)
 const stopDaily = () => {
   const newUserTime = userStore.activeUser.time + counterStore.currentTurn
   userStore.setUserTime(userStore.activeUser.id, newUserTime)
+  userStore.resetActiveUser()
+
   counterStore.resetCurrentTurn()
+  counterStore.finishDaily()
 
   stopTimer()
-  userStore.resetActiveUser()
-  counterStore.finishDaily()
 }
 </script>
 
