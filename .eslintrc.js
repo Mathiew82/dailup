@@ -21,6 +21,7 @@ module.exports = {
   'rules': {
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
-    'indent': ['error', 2]
+    'indent': ['error', 2],
+    'vue/multi-word-component-names': 0
   }
 }
