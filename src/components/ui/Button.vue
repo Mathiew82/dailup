@@ -77,6 +77,24 @@ defineProps({
     }
   }
 
+  &--white {
+    background: darken($white-color, 10%);
+    color: $black-color;
+
+    &:hover {
+      background: $white-color;
+    }
+  }
+
+  &--black {
+    background: lighten($black-color, 10%);
+    color: $white-color;
+
+    &:hover {
+      background: $black-color;
+    }
+  }
+
   &--full-width {
     width: 100%;
   }
