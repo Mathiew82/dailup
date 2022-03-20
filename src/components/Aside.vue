@@ -34,6 +34,10 @@
     >
       Confirmar usuarios
     </Button>
+
+    <Button type="button" color="black" id="stats-button">
+      Ver estadísticas
+    </Button>
   </aside>
 </template>
 
@@ -68,6 +72,7 @@ aside {
   margin: 0;
   overflow-y: scroll;
   padding: 30px 12px 30px 30px;
+  position: relative;
   text-align: center;
 
   &::-webkit-scrollbar {
@@ -120,6 +125,18 @@ aside {
 
   button:nth-of-type(2) {
     margin-top: 3rem;
+  }
+
+  button#stats-button {
+    border-color: rgba(white, 0.4) !important;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      border-color: rgba(white, 0.3) !important;
+    }
   }
 }
 </style>
