@@ -22,6 +22,7 @@ module.exports = {
     'semi': ['error', 'never'],
     'quotes': ['error', 'single'],
     'indent': ['error', 2],
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    'no-unused-vars': 'off'
   }
 }
