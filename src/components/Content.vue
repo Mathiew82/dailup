@@ -28,13 +28,13 @@
 </template>
 
 <script setup>
-import { useUserStore } from '../stores/user.js'
-import { useCounterStore } from '../stores/counter.js'
-import { useTimer } from '../hooks/useTimer.ts'
-import Button from './ui/Button.vue'
-import Counter from './Counter.vue'
-import { counterTypes } from '../constants/counterTypes'
-import { dailyStatus } from '../constants/dailyStatus'
+import { useUserStore } from '@/stores/user.js'
+import { useCounterStore } from '@/stores/counter.js'
+import { useTimer } from '@/hooks/useTimer.ts'
+import Button from '@/components/ui/Button.vue'
+import Counter from '@/components/Counter.vue'
+import { counterTypes } from '@/constants/counterTypes'
+import { dailyStatus } from '@/constants/dailyStatus'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()

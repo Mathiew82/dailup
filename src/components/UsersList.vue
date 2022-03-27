@@ -40,11 +40,11 @@
 </template>
 
 <script setup>
-import { useUserStore } from '../stores/user.js'
-import { useCounterStore } from '../stores/counter.js'
-import { useTimer } from '../hooks/useTimer.ts'
-import { dailyStatus } from '../constants/dailyStatus'
-import { getTimeFormatted } from '../utils/getTimeFormatted.js'
+import { useUserStore } from '@/stores/user.js'
+import { useCounterStore } from '@/stores/counter.js'
+import { useTimer } from '@/hooks/useTimer.ts'
+import { dailyStatus } from '@/constants/dailyStatus'
+import { getTimeFormatted } from '@/utils/getTimeFormatted.js'
 
 const userStore = useUserStore()
 const counterStore = useCounterStore()

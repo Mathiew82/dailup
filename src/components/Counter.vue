@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { getTimeFormatted } from '../utils/getTimeFormatted.js'
+import { getTimeFormatted } from '@/utils/getTimeFormatted.js'
 
 defineProps({
   type: {

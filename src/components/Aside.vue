@@ -49,10 +49,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '../stores/user.js'
-import Button from './ui/Button.vue'
-import UsersList from './UsersList.vue'
-import { useGoTo } from '../hooks/useGoTo.ts'
+import { useUserStore } from '@/stores/user.js'
+import Button from '@/components/ui/Button.vue'
+import UsersList from '@/components/UsersList.vue'
+import { useGoTo } from '@/hooks/useGoTo.ts'
 
 const router = useRouter()
 const userStore = useUserStore()

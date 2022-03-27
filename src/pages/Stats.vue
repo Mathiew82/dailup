@@ -14,8 +14,8 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import Button from '../components/ui/Button.vue'
-import { useGoTo } from '../hooks/useGoTo.ts'
+import Button from '@/components/ui/Button.vue'
+import { useGoTo } from '@/hooks/useGoTo.ts'
 import * as echarts from 'echarts'
 
 const router = useRouter()
