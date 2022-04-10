@@ -6,11 +6,6 @@ export const routes = [
     name: 'Home',
     component: () => import('../pages/Home.vue')
   },
-  {
-    path: '/stats',
-    name: 'Stats',
-    component: () => import('../pages/Stats.vue')
-  },
 ]
 
 const router = createRouter({
