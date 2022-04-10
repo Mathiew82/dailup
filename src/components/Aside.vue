@@ -34,29 +34,16 @@
     >
       Confirmar usuarios
     </Button>
-
-    <Button
-      type="button"
-      color="black"
-      id="stats-button"
-      @click="goTo('Stats')"
-    >
-      Estadísticas
-    </Button>
   </aside>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user.js'
 import Button from '@/components/ui/Button.vue'
 import UsersList from '@/components/UsersList.vue'
-import { useGoTo } from '@/hooks/useGoTo.ts'
 
-const router = useRouter()
 const userStore = useUserStore()
-const { goTo } = useGoTo(router)
 
 const newUserName = ref('')
 
@@ -134,21 +121,6 @@ aside {
 
   button:nth-of-type(2) {
     margin-top: 3rem;
-  }
-
-  button#stats-button {
-    background-color: darken($midnight-blue-color, 6%);
-    border: 2px solid $border-color;
-    border-radius: 3rem;
-    font-size: 16px;
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &:hover {
-      border-color: rgba(white, 0.6) !important;
-    }
   }
 }
 </style>
